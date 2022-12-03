@@ -456,7 +456,7 @@
             <br/>Called while sending tile data (!lightSend) and when <see cref="F:Terraria.ID.MessageID.TileEntitySharing"/> is sent (lightSend).
             <br/>Only called on the server.
             </summary>
-            <param name="writer">The writer.</param>
+            <param name="writer">用于给数据包写入数据的 BinaryWriter 实例</param>
         </member>
         <member name="M:Terraria.DataStructures.TileEntity.NetReceive(System.IO.BinaryReader)">
             <summary>
@@ -464,7 +464,7 @@
             <br/>Called while receiving tile data (!lightReceive) and when <see cref="F:Terraria.ID.MessageID.TileEntitySharing"/> is received (lightReceive).
             <br/>Only called on the client.
             </summary>
-            <param name="reader">The reader.</param>
+            <param name="reader">用于从数据包读取数据的 BinaryReader 实例</param>
         </member>
         <member name="T:Terraria.DataStructures.TileRestingInfo">
             <summary>
@@ -7211,17 +7211,17 @@
         </member>
         <member name="M:Terraria.ModLoader.ILoadable.Unload">
             <summary>
-            Called during unloading when needed.
+            需要时在卸载期间调用。
             </summary>
         </member>
         <member name="P:Terraria.ModLoader.IModType.Mod">
             <summary>
-             The mod this belongs to.
+             所属的模组。
              </summary>
         </member>
         <member name="P:Terraria.ModLoader.IModType.Name">
             <summary>
-            The internal name of this instance.
+            此实例的内部名称。
             </summary>
         </member>
         <member name="P:Terraria.ModLoader.IModType.FullName">
@@ -7231,31 +7231,31 @@
         </member>
         <member name="P:Terraria.ModLoader.InfoDisplay.Type">
             <summary>
-            This is the internal ID of this InfoDisplay.
+            这是此 InfoDisplay 的内部 ID。
             </summary>
         </member>
         <member name="P:Terraria.ModLoader.InfoDisplay.InfoName">
             <summary>
-            This is the translation that is used behind <see cref="P:Terraria.ModLoader.InfoDisplay.DisplayName"/>. The translation will show up when hovering over this info display.
+            这是 <see cref="P:Terraria.ModLoader.InfoDisplay.DisplayName"/> 使用的翻译。 将鼠标光标悬停在此信息显示上时将显示翻译。
             </summary>
         </member>
         <member name="P:Terraria.ModLoader.InfoDisplay.DisplayName">
             <summary>
-            This is the name that will show up when hovering over this info display.
+            这是将鼠标光标悬停在此信息显示上时将显示的名称。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.InfoDisplay.Active">
             <summary>
-            This dictates whether or not this info display should be active.
+            这指示此信息显示是否应处于活动状态。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.InfoDisplay.DisplayValue">
             <summary>
-            This is the value that will show up when viewing this display in normal play, right next to the icon.
+            这是在正常游戏中查看此显示时将显示的值，会显示在图标旁边。
             </summary>
         </member>
         <member name="T:Terraria.ModLoader.Instanced`1">
-            <summary> The purpose of this struct is to micro-optimize lookups of GlobalX indices by providing these associations without additional retrievals from the heap. </summary>
+            <summary> 此结构的目的是通过提供这些关联而无需从堆中进行额外检索来微优化 GlobalX 索引的查找。 </summary>
         </member>
         <member name="M:Terraria.ModLoader.BackupIO.RunArchiving(System.Action{Ionic.Zip.ZipFile,System.Boolean,System.String},System.Boolean,System.String,System.String,System.String)">
             <summary>
@@ -7660,7 +7660,7 @@
         </member>
         <member name="M:Terraria.ModLoader.ItemLoader.DrawArmorColor(Terraria.ModLoader.EquipType,System.Int32,Terraria.Player,System.Single,Microsoft.Xna.Framework.Color@,System.Int32@,Microsoft.Xna.Framework.Color@)">
             <summary>
-            调用物品的装备纹理的 DrawArmorColor 钩子，然后调用所有 GlobalItem.DrawArmorColor 钩子。
+            调用物品的装备贴图的 DrawArmorColor 钩子，然后调用所有 GlobalItem.DrawArmorColor 钩子。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ItemLoader.ArmorArmGlowMask(System.Int32,Terraria.Player,System.Single,System.Int32@,Microsoft.Xna.Framework.Color@)">
@@ -7961,7 +7961,7 @@
         </member>
         <member name="M:Terraria.ModLoader.Mod.HandlePacket(System.IO.BinaryReader,System.Int32)">
             <summary>
-            每当从客户端（如果当前是服务器）或服务器（如果当前是客户端）接收到网络消息/数据包时调用。whoAmI是发送数据包的客户端的ID (相当于发送方的 Main.myPlayer, 由服务器发送到客户端的数据包中此值为 -1)，reader 变量用于读取数据包所含的二进制数据。
+            每当从客户端(如果当前是服务器)或服务器(如果当前是客户端)接收到网络消息/数据包时调用。whoAmI是发送数据包的客户端的ID (相当于发送方的 Main.myPlayer, 由服务器发送到客户端的数据包中此值为 -1)，reader 变量用于读取数据包所含的二进制数据。
             </summary>
             <param name="reader">数据包读取器</param>
             <param name="whoAmI">发送该数据包的客户端(玩家)(由服务器发送到客户端的数据包中此值为 -1)</param>
@@ -9680,7 +9680,7 @@
             <br/>Called whenever an item container syncs its contents (various MessageIDs and sources), or <see cref="F:Terraria.ID.MessageID.SyncItem"/> and <see cref="F:Terraria.ID.MessageID.InstancedItem"/> are successfully sent, for example when the item is dropped into the world.
             <br/>Can be called on both server and client.
             </summary>
-            <param name="writer">The writer.</param>
+            <param name="writer">用于给数据包写入数据的 BinaryWriter 实例</param>
         </member>
         <member name="M:Terraria.ModLoader.ModItem.NetReceive(System.IO.BinaryReader)">
             <summary>
@@ -9688,7 +9688,7 @@
             <br/>Called whenever an item container syncs its contents (various MessageIDs and sources), or <see cref="F:Terraria.ID.MessageID.SyncItem"/> and <see cref="F:Terraria.ID.MessageID.InstancedItem"/> are successfully received.
             <br/>Can be called on both server and client.
             </summary>
-            <param name="reader">The reader.</param>
+            <param name="reader">用于从数据包读取数据的 BinaryReader 实例</param>
         </member>
         <member name="M:Terraria.ModLoader.ModItem.AddRecipes">
             <summary>
@@ -9989,239 +9989,236 @@
         </member>
         <member name="T:Terraria.ModLoader.ModNPC">
             <summary>
-            This class serves as a place for you to place all your properties and hooks for each NPC. Create instances of ModNPC (preferably overriding this class) to pass as parameters to Mod.AddNPC.
+            这个类是你为每个 NPC 放置所有属性和钩子的地方。创建 ModNPC 的实例(最好重写此基类)以作为参数传递给 Mod.AddNPC。
             </summary>
         </member>
         <member name="P:Terraria.ModLoader.ModNPC.NPC">
-            <summary> The NPC object that this ModNPC controls. </summary>
+            <summary> 此 ModNPC 控制的 NPC 对象。 </summary>
         </member>
         <member name="P:Terraria.ModLoader.ModNPC.Type">
-            <summary> Shorthand for NPC.type; </summary>
+            <summary> NPC.type 的简写 </summary>
         </member>
         <member name="P:Terraria.ModLoader.ModNPC.DisplayName">
-            <summary> The translations for the display name of this NPC. </summary>
+            <summary> 此 NPC 显示名称的翻译。 </summary>
         </member>
         <member name="P:Terraria.ModLoader.ModNPC.Texture">
             <summary>
-            The file name of this type's texture file in the mod loader's file space.
+            该 ModNPC 的贴图文件在 ModLoader 的文件空间中的文件路径。
             </summary>
         </member>
         <member name="P:Terraria.ModLoader.ModNPC.HeadTexture">
-            <summary> The file name of this NPC's head texture file, to be used in autoloading. </summary>
+            <summary> 此 NPC 头部贴图文件的文件名，用于自动加载。 </summary>
         </member>
         <member name="P:Terraria.ModLoader.ModNPC.BossHeadTexture">
-            <summary> This file name of this NPC's boss head texture file, to be used in autoloading. </summary>
+            <summary> 此 NPC 的 Boss 头部贴图文件的文件名，用于自动加载。 </summary>
         </member>
         <member name="P:Terraria.ModLoader.ModNPC.AIType">
-            <summary> Determines which type of vanilla NPC this ModNPC will copy the behavior (AI) of. Leave as 0 to not copy any behavior. Defaults to 0. </summary>
+            <summary> 确定此 ModNPC 将复制其行为 (AI) 的原版 NPC 的 ID。保留为 0 则不复制任何行为。默认为 0。 </summary>
         </member>
         <member name="P:Terraria.ModLoader.ModNPC.AnimationType">
             <summary>
-            Determines which type of vanilla NPC this ModNPC will copy the animation/framing logic of, which includes checks to sets such as <seealso cref="F:Terraria.Main.npcFrameCount"/>
-            and <seealso cref="F:Terraria.ID.NPCID.Sets.ExtraFramesCount"/>, and others. For example, selecting the Guide's type will copy how many frames, extra frames, and attack frames the
-            Guide has, and use those value for animation of this NPC. This is entirely based off of type and not the ModNPC instance itself; so be cautious if you
-            change this NPC's type.
+            确定此 ModNPC 将复制其动画/框架逻辑的原版 NPC ID，其中包括对集合的检查，例如 <seealso cref="F:Terraria.Main.npcFrameCount"/> 和 <seealso cref="F:Terraria.ID .NPCID.Sets.ExtraFramesCount"/> 等。 例如，选择向导的 ID 将复制向导的默认帧、额外帧和攻击帧，并将这些值用于此 NPC 的动画。这完全基于类型而不是 ModNPC 实例本身；所以你改变这个值时要小心。
             </summary>
         </member>
         <member name="P:Terraria.ModLoader.ModNPC.Music">
-            <summary> The ID of the music that plays when this NPC is on or near the screen. Defaults to -1, which means music plays normally. </summary>
-            Will be superceded by ModSceneEffect. Kept for legacy.
+            <summary> 当此 NPC 在屏幕上或屏幕附近时播放的音乐的 ID。默认为-1，表示无特殊音乐。 </summary>
+            被 ModSceneEffect 取代。此变量作为无用旧变量而保留
         </member>
         <member name="P:Terraria.ModLoader.ModNPC.SceneEffectPriority">
-            <summary> The priority of the music that plays when this NPC is on or near the screen. </summary>
-            Will be superceded by ModSceneEffect. Kept for legacy.
+            <summary> 当此 NPC 在屏幕上或屏幕附近时播放的音乐的优先级。 </summary>
+            被 ModSceneEffect 取代。此变量作为无用旧变量而保留
         </member>
         <member name="P:Terraria.ModLoader.ModNPC.DrawOffsetY">
-            <summary> The vertical offset used for drawing this NPC. Defaults to 0. </summary>
+            <summary> 用于绘制此 NPC 的垂直偏移。 默认为 0。 </summary>
         </member>
         <member name="P:Terraria.ModLoader.ModNPC.Banner">
-            <summary> The type of NPC that this NPC will be considered as when determining banner drops and banner bonuses. By default this will be 0, which means this NPC is not associated with any banner. To give your NPC its own banner, set this field to the NPC's type. </summary>
+            <summary> 在确定旗帜掉落和旗帜奖励时，该 NPC 将被视为 NPC 的类型。 默认情况下，这将为 0，这意味着此 NPC 不与任何旗帜相关联。 要给您的 NPC 自己的旗帜，请将此字段设置为 NPC 的类型。 </summary>
         </member>
         <member name="P:Terraria.ModLoader.ModNPC.BannerItem">
-            <summary> The type of the item this NPC drops for every 50 times it is defeated. For any ModNPC whose banner field is set to the type of this NPC, that ModNPC will drop this banner. </summary>
+            <summary> 此 NPC 每被击败 50 次后掉落的物品类型。 对于任何旗帜字段设置为该 NPC 类型的 ModNPC，该 ModNPC 将掉落该旗帜。 </summary>
         </member>
         <member name="P:Terraria.ModLoader.ModNPC.SpawnModBiomes">
-            <summary> The ModBiome Types associated with this NPC spawning, if applicable. Used in Bestiary </summary>
+            <summary> 与此 NPC 生成关联的 ModBiome 类型(如果适用)。用于图鉴 </summary>
         </member>
         <member name="P:Terraria.ModLoader.ModNPC.TownNPCStayingHomeless">
-            <summary> Setting this to true will make the NPC not appear in the housing menu nor make it find an house. </summary>
+            <summary> 将此设置为 true 将使 NPC 不会出现在房屋菜单中，也不会使其找到房屋。 </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.SetDefaults">
             <summary>
-            Allows you to set all your NPC's properties, such as width, damage, aiStyle, lifeMax, etc.
+            允许您设置所有 NPC 的属性，例如 width、damage、aiStyle、lifeMax 等。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.OnSpawn(Terraria.DataStructures.IEntitySource)">
             <summary>
-            Gets called when your NPC spawns in world
+            当您的 NPC 在世界中生成时被调用
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.AutoStaticDefaults">
             <summary>
-            Automatically sets certain static defaults. Override this if you do not want the properties to be set for you.
+            自动设置某些静态默认值。如果您不想为您设置这些属性，请重写它。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.ScaleExpertStats(System.Int32,System.Single)">
             <summary>
-            Allows you to customize this NPC's stats in expert mode. This is useful because expert mode's doubling of damage and life might be too much sometimes (for example, with bosses). Also useful for scaling life with the number of players in the world.
+            允许您在专家模式下自定义此 NPC 的统计数据。这很有用，因为专家模式的伤害和生命加倍有时可能太多(例如，对于Boss)。对于根据世界上的玩家数量来增加血量也很有用。
             </summary>
             <param name="numPlayers"></param>
             <param name="bossLifeScale"></param>
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase,Terraria.GameContent.Bestiary.BestiaryEntry)">
             <summary>
-            Allows you to set an NPC's information in the Bestiary.
+            允许您在图鉴中设置 NPC 的信息。
             </summary>
             <param name="database"></param>
             <param name="bestiaryEntry"></param>
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.ModifyTypeName(System.String@)">
             <summary>
-            Allows you to modify the type name of this NPC dynamically.
+            允许您动态修改此类 NPC 的名称。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.ModifyHoverBoundingBox(Microsoft.Xna.Framework.Rectangle@)">
             <summary>
-            Allows you to modify the bounding box for hovering over this NPC (affects things like whether or not its name is displayed).
+            允许您修改悬停在此 NPC 上的边界框(影响诸如是否显示其名称之类的事情)。
             </summary>
-            <param name="boundingBox">The bounding box used for determining whether or not the NPC counts as being hovered over.</param>
+            <param name="boundingBox">用于确定光标是否悬停在该 NPC 身上的边界框。</param>
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.SetNPCNameList">
             <summary>
-            Allows you to give a list of names this NPC can be given on spawn.<br></br>
-            By default, returns a blank list, which means the NPC will simply use its type name as its given name when prompted.
+            允许您给出此 NPC 可以在生成时可能被赐予的名称列表。<br></br>
+            默认情况下，返回一个空白列表，这意味着 NPC 在出现提示时将仅使用其类型名称作为其给定名称。
             </summary>
             <returns></returns>
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.TownNPCProfile">
             <summary>
-            Allows you to set the town NPC profile that this NPC uses.<br></br>
-            By default, returns null, meaning that the NPC doesn't use one.
+            允许您设置此 NPC 使用的城镇 NPC 配置文件。<br></br>
+            默认情况下，返回 null，这意味着 NPC 不使用任何配置文件。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.ResetEffects">
             <summary>
-            This is where you reset any fields you add to your subclass to their default states. This is necessary in order to reset your fields if they are conditionally set by a tick update but the condition is no longer satisfied. (Note: This hook is only really useful for GlobalNPC, but is included in ModNPC for completion.)
+            这是您将添加到子类的任何字段重置为其默认状态的地方。这是必要的，以便在您的字段通过每帧更新有条件地设置时，在不再满足条件的情况下重置您的字段。(注意：这个钩子只对 GlobalNPC 真正有用，但仍包含在 ModNPC 中以确保对应。)
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.PreAI">
             <summary>
-            Allows you to determine how this NPC behaves. Return false to stop the vanilla AI and the AI hook from being run. Returns true by default.
+            允许您决定此 NPC 的行为方式。返回 false 以停止运行原版 AI 和 AI 钩子。默认返回 true。
             </summary>
             <returns></returns>
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.AI">
             <summary>
-            Allows you to determine how this NPC behaves. This will only be called if PreAI returns true.
+            允许您决定此 NPC 的行为方式。 这只会在 PreAI 返回 true 时被调用。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.SendExtraAI(System.IO.BinaryWriter)">
             <summary>
-            If you are storing AI information outside of the NPC.ai array, use this to send that AI information between clients and servers, which will be handled in <see cref="M:Terraria.ModLoader.ModNPC.ReceiveExtraAI(System.IO.BinaryReader)"/>.
-            <br/>Called whenever <see cref="F:Terraria.ID.MessageID.SyncNPC"/> is successfully sent, for example on NPC creation, on player join, or whenever NPC.netUpdate is set to true in the update loop for that tick.
-            <br/>Only called on the server.
+            如果您将 AI 数据存储在 NPC.ai 数组之外，请使用它在客户端和服务器之间发送该 AI 数据，这些数据将会在 <see cref="M:Terraria.ModLoader.ModNPC.ReceiveExtraAI(System.IO.BinaryReader)"/> 中处理。
+            <br/>每当 <see cref="F:Terraria.ID.MessageID.SyncNPC"/> 数据包成功发送时调用，例如在创建 NPC 时、在玩家加入时，或者每当在该帧的更新循环中将 NPC.netUpdate 设置为 true 时。
+            <br/>仅在服务器端调用。
             </summary>
-            <param name="writer">The writer.</param>
+            <param name="writer">用于给数据包写入数据的 BinaryWriter 实例</param>
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.ReceiveExtraAI(System.IO.BinaryReader)">
             <summary>
-            Use this to receive information that was sent in <see cref="M:Terraria.ModLoader.ModNPC.SendExtraAI(System.IO.BinaryWriter)"/>.
-            <br/>Called whenever <see cref="F:Terraria.ID.MessageID.SyncNPC"/> is successfully received.
-            <br/>Only called on the client.
+            使用它来接收在 <see cref="M:Terraria.ModLoader.ModNPC.SendExtraAI(System.IO.BinaryWriter)"/> 中发送的信息。
+            <br/>每当成功接收到 <see cref="F:Terraria.ID.MessageID.SyncNPC"/> 数据包时调用。
+            <br/>仅在客户端调用。
             </summary>
-            <param name="reader">The reader.</param>
+            <param name="reader">用于从数据包读取数据的 BinaryReader 实例</param>
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.FindFrame(System.Int32)">
             <summary>
-            Allows you to modify the frame from this NPC's texture that is drawn, which is necessary in order to animate NPCs.
+            允许您修改此 NPC 的贴图的绘制帧，这是为 NPC 设置动画所必需的。
             </summary>
             <param name="frameHeight"></param>
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.HitEffect(System.Int32,System.Double)">
             <summary>
-            Allows you to make things happen whenever this NPC is hit, such as creating dust or gores.
-            <br/> This hook is client side. Usually when something happens when an NPC dies such as item spawning, you use NPCLoot, but you can use HitEffect paired with a check for `if (NPC.life &lt;= 0)` to do client-side death effects, such as spawning dust, gore, or death sounds.
+            允许你在这个 NPC 被击中时让事情发生，例如生成粒子或尸块。
+            <br/>这个钩子仅在客户端调用。通常，当 NPC 死亡时发生某些事情(例如物品生成)时，您可以使用 NPCLoot，但您可以使用 HitEffect 结合检查 <code>if (NPC.life &lt;= 0)</code> 来执行客户端死亡效果，例如生成粒子、尸块或发出音效。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.UpdateLifeRegen(System.Int32@)">
             <summary>
-            Allows you to make the NPC either regenerate health or take damage over time by setting NPC.lifeRegen. Regeneration or damage will occur at a rate of half of NPC.lifeRegen per second. The damage parameter is the number that appears above the NPC's head if it takes damage over time.
+            允许您通过设置 NPC.lifeRegen 让 NPC 恢复血量或随着时间的推移受到伤害。再生或伤害将以每秒 NPC.lifeRegen 一半的速度 (如值为2则每秒再生1点血量) 发生。伤害参数是 NPC 随时间受到伤害时出现在其头顶上方的数字。
             </summary>
             <param name="damage"></param>
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.CheckActive">
             <summary>
-            Whether or not to run the code for checking whether this NPC will remain active. Return false to stop this NPC from being despawned and to stop this NPC from counting towards the limit for how many NPCs can exist near a player. Returns true by default.
+            是否运行检查此 NPC 是否保持活动的代码。返回 false 以阻止此 NPC 消失并阻止此 NPC 参与计算玩家附近可存在的 NPC 数量的限制。默认情况下返回 true。
             </summary>
             <returns></returns>
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.CheckDead">
             <summary>
-            Whether or not this NPC should be killed when it reaches 0 health. You may program extra effects in this hook (for example, how Golem's head lifts up for the second phase of its fight). Return false to stop this NPC from being killed. Returns true by default.
+            当 NPC 的生命值达到 0 时是否应该将其杀死。 您可以在此钩子中编写额外的效果(例如，石巨人的头在战斗的第二阶段时会无敌并开始乱飞)。 返回 false 以阻止此 NPC 被杀死。 默认返回真。
             </summary>
             <returns></returns>
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.SpecialOnKill">
             <summary>
-            Allows you to call OnKill on your own when the NPC dies, rather then letting vanilla call it on its own. Returns false by default.
+            允许您在 NPC 死亡时自行调用 OnKill，而不是让原版自行调用。 默认情况下返回 false。
             </summary>
-            <returns>Return true to stop vanilla from calling OnKill on its own. Do this if you call OnKill yourself.</returns>
+            <returns>返回 true 以阻止原版自行调用 OnKill。如果您自己调用 OnKill，请执行此操作。</returns>
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.PreKill">
             <summary>
-            Allows you to determine whether or not this NPC will do anything upon death (besides dying). Returns true by default.
+            允许你决定这个 NPC 是否会死亡。返回 true 则会死亡。默认情况下返回 true。
             </summary>
             <returns></returns>
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.OnKill">
             <summary>
-            Allows you to make things happen when this NPC dies (for example, dropping items and setting ModSystem fields). This hook runs on the server/single player. For client-side effects, such as dust, gore, and sounds, see HitEffect
+            允许您在该 NPC 死亡时发生事件(例如，掉落物品和设置 ModSystem 字段)。此钩子在多人模式服务器端/单人游戏上运行。对于仅客户端效果(通常来说是视觉效果)，例如粒子、尸块和音效，请参阅 HitEffect
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.CanFallThroughPlatforms">
             <summary>
-            Allows you to determine how and when this NPC can fall through platforms and similar tiles.
-            <br/>Return true to allow this NPC to fall through platforms, false to prevent it. Returns null by default, applying vanilla behaviors (based on aiStyle and type).
+            允许您确定此 NPC 如何以及何时可以穿过平台和类似的地块。
+            <br/>返回 true 以允许这个 NPC 从平台上掉下来，false 以阻止落下。默认情况下返回 null，即应用原版行为 (基于 aiStyle 和 type)。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.CanBeCaughtBy(Terraria.Item,Terraria.Player)">
             <summary>
-            Allows you to determine whether the given item can catch this NPC.<br></br>
-            Return true or false to say this NPC can or cannot be caught, respectively, regardless of vanilla rules.<br></br>
-            Returns null by default, which allows vanilla's NPC catching rules to decide the target's fate.<br></br>
-            If this returns false, <see cref="M:Terraria.ModLoader.CombinedHooks.OnCatchNPC(Terraria.Player,Terraria.NPC,Terraria.Item,System.Boolean)"/> is never called.<br></br><br></br>
-            NOTE: this does not classify the given item as an NPC-catching tool, which is necessary for catching NPCs in the first place.<br></br>
-            To do that, you will need to use the "CatchingTool" set in ItemID.Sets.
+            允许您确定给定物品是否可以捕获此NPC。<br></br>
+            无论原版规则如何，返回 true 或 false 分别表示可以或不能捕获此NPC。<br></br>
+            默认返回null，让原版的NPC捕捉规则决定目标的命运。<br></br>
+            如果返回 false，则永远不会调用 <see cref="M:Terraria.ModLoader.CombinedHooks.OnCatchNPC(Terraria.Player,Terraria.NPC,Terraria.Item,System.Boolean)"/>。<para/>
+            注意: 这个方法不会自动将给定的物品分类为 NPC 捕捉工具，相反，将物品分类为捕捉工具是捕捉 NPC 所必需的。<br></br>
+            为此，您需要将物品归类到 ItemID.Sets.CatchingTool 集合。
             </summary>
-            <param name="item">The item with which the player is trying to catch this NPC.</param>
-            <param name="player">The player attempting to catch this NPC.</param>
+            <param name="item">玩家用来抓住这个 NPC 的物品。</param>
+            <param name="player">试图抓住这个 NPC 的玩家。</param>
             <returns></returns>
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.OnCaughtBy(Terraria.Player,Terraria.Item,System.Boolean)">
             <summary>
-            Allows you to make things happen when the given item attempts to catch this NPC.
+            允许您在给定物品试图捕捉此 NPC 时让事情发生。
             </summary>
-            <param name="player">The player attempting to catch this NPC.</param>
-            <param name="item">The item used to catch this NPC.</param>
-            <param name="failed">Whether or not this NPC has been successfully caught.</param>
+            <param name="player">试图抓住这个 NPC 的玩家。</param>
+            <param name="item">用来抓住这个 NPC 的物品。</param>
+            <param name="failed">该 NPC 是否会被成功捕捉。</param>
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.ModifyNPCLoot(Terraria.ModLoader.NPCLoot)">
             <summary>
-            Allows you to add and modify NPC loot tables to drop on death and to appear in the Bestiary.<br/>
-            The <see href="https://github.com/tModLoader/tModLoader/wiki/Basic-NPC-Drops-and-Loot-1.4">Basic NPC Drops and Loot 1.4 Guide</see> explains how to use this hook to modify NPC loot.
+            允许您添加和修改 NPC 战利品表以在死亡时掉落并出现在图鉴中。<br/>
+            <see href="https://github.com/tModLoader/tModLoader/wiki/Basic-NPC-Drops-and-Loot-1.4">基本 NPC 掉落和战利品 1.4 指南</see>解释了如何使用这个钩子修改NPC战利品。
             </summary>
             <param name="npcLoot"></param>
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.BossLoot(System.String@,System.Int32@)">
             <summary>
-            Allows you to customize what happens when this boss dies, such as which name is displayed in the defeat message and what type of potion it drops.
+            允许您自定义此 Boss 死亡时发生的事件，例如在击杀消息中显示的名称以及它掉落的药水的物品ID。
             </summary>
             <param name="name"></param>
             <param name="potionType"></param>
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.CanHitPlayer(Terraria.Player,System.Int32@)">
             <summary>
-            Allows you to determine whether this NPC can hit the given player. Return false to block this NPC from hitting the target. Returns true by default. CooldownSlot determines which of the player's cooldown counters to use (-1, 0, or 1), and defaults to -1.
+            允许您确定此 NPC 是否可以击中指定玩家。返回 false 以阻止此 NPC 击中目标。默认情况下返回 true。cooldownSlot 决定使用哪个玩家的冷却计数器(-1、0 或 1)，默认为 -1。
             </summary>
             <param name="target"></param>
             <param name="cooldownSlot"></param>
@@ -10229,7 +10226,7 @@
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.ModifyHitPlayer(Terraria.Player,System.Int32@,System.Boolean@)">
             <summary>
-            Allows you to modify the damage, etc., that this NPC does to a player.
+            允许您修改此 NPC 对玩家造成的伤害等。
             </summary>
             <param name="target"></param>
             <param name="damage"></param>
@@ -10237,7 +10234,7 @@
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.OnHitPlayer(Terraria.Player,System.Int32,System.Boolean)">
             <summary>
-            Allows you to create special effects when this NPC hits a player (for example, inflicting debuffs).
+            允许您在该 NPC 击中玩家时创建特殊效果（如造成减益）。
             </summary>
             <param name="target"></param>
             <param name="damage"></param>
@@ -10245,14 +10242,14 @@
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.CanHitNPC(Terraria.NPC)">
             <summary>
-            Allows you to determine whether this NPC can hit the given friendly NPC. Return true to allow hitting the target, return false to block this NPC from hitting the target, and return null to use the vanilla code for whether the target can be hit. Returns null by default.
+            允许您确定此 NPC 是否可以击中给定的友方 NPC。 返回 true 以允许击中目标，返回 false 以阻止此 NPC 击中目标，返回 null 以使用原版代码来确定是否可以击中目标。 默认返回 null。
             </summary>
             <param name="target"></param>
             <returns></returns>
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.ModifyHitNPC(Terraria.NPC,System.Int32@,System.Single@,System.Boolean@)">
             <summary>
-            Allows you to modify the damage, knockback, etc., that this NPC does to a friendly NPC.
+            允许您修改此 NPC 对友方 NPC 造成的伤害、击退等。
             </summary>
             <param name="target"></param>
             <param name="damage"></param>
@@ -10261,7 +10258,7 @@
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.OnHitNPC(Terraria.NPC,System.Int32,System.Single,System.Boolean)">
             <summary>
-            Allows you to create special effects when this NPC hits a friendly NPC.
+            允许您在该 NPC 击中友方 NPC 时创建特殊效果。
             </summary>
             <param name="target"></param>
             <param name="damage"></param>
@@ -10270,7 +10267,7 @@
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.CanBeHitByItem(Terraria.Player,Terraria.Item)">
             <summary>
-            Allows you to determine whether this NPC can be hit by the given melee weapon when swung. Return true to allow hitting the NPC, return false to block hitting the NPC, and return null to use the vanilla code for whether the NPC can be hit. Returns null by default.
+            允许您确定此 NPC 在挥动时是否可以被给定的近战武器击中。 返回 true 允许击中 NPC，返回 false 阻止击中 NPC，返回 null 以使用原版代码来确定是否可以击中 NPC。 默认返回 null。
             </summary>
             <param name="player"></param>
             <param name="item"></param>
@@ -10278,7 +10275,7 @@
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.ModifyHitByItem(Terraria.Player,Terraria.Item,System.Int32@,System.Single@,System.Boolean@)">
             <summary>
-            Allows you to modify the damage, knockback, etc., that this NPC takes from a melee weapon.
+            允许您修改此 NPC 从近战武器中获得的伤害、击退等。
             </summary>
             <param name="player"></param>
             <param name="item"></param>
@@ -10288,7 +10285,7 @@
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.OnHitByItem(Terraria.Player,Terraria.Item,System.Int32,System.Single,System.Boolean)">
             <summary>
-            Allows you to create special effects when this NPC is hit by a melee weapon.
+            允许您在该 NPC 被近战武器击中时创建特殊效果。
             </summary>
             <param name="player"></param>
             <param name="item"></param>
@@ -10298,14 +10295,14 @@
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.CanBeHitByProjectile(Terraria.Projectile)">
             <summary>
-            Allows you to determine whether this NPC can be hit by the given projectile. Return true to allow hitting the NPC, return false to block hitting the NPC, and return null to use the vanilla code for whether the NPC can be hit. Returns null by default.
+            允许您确定此 NPC 是否可以被给定的射弹击中。 返回 true 允许击中 NPC，返回 false 阻止击中 NPC，返回 null 以使用原版代码来确定是否可以击中 NPC。 默认返回 null。
             </summary>
             <param name="projectile"></param>
             <returns></returns>
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.ModifyHitByProjectile(Terraria.Projectile,System.Int32@,System.Single@,System.Boolean@,System.Int32@)">
             <summary>
-            Allows you to modify the damage, knockback, etc., that this NPC takes from a projectile. This method is only called for the owner of the projectile, meaning that in multi-player, projectiles owned by a player call this method on that client, and projectiles owned by the server such as enemy projectiles call this method on the server.
+            允许您修改此 NPC 从射弹中受到的伤害、击退等。该方法只对射弹拥有者调用，即多人游戏中，对于玩家拥有的射弹则在该客户端调用该方法，对于服务器拥有的射弹如敌方射弹则在服务器调用该方法。
             </summary>
             <param name="projectile"></param>
             <param name="damage"></param>
@@ -10315,7 +10312,7 @@
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.OnHitByProjectile(Terraria.Projectile,System.Int32,System.Single,System.Boolean)">
             <summary>
-            Allows you to create special effects when this NPC is hit by a projectile.
+            允许您在该 NPC 被射弹击中时创建特殊效果。
             </summary>
             <param name="projectile"></param>
             <param name="damage"></param>
@@ -10324,7 +10321,7 @@
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.StrikeNPC(System.Double@,System.Int32,System.Single@,System.Int32,System.Boolean@)">
             <summary>
-            Allows you to use a custom damage formula for when this NPC takes damage from any source. For example, you can change the way defense works or use a different crit multiplier. Return false to stop the game from running the vanilla damage formula; returns true by default.
+            允许您在该 NPC 从任何来源受到伤害时使用自定义伤害公式。例如，您可以更改防御的工作方式或使用不同的暴击倍率。返回 false 以停止游戏运行原版伤害公式，默认情况下返回 true。
             </summary>
             <param name="damage"></param>
             <param name="defense"></param>
@@ -10335,61 +10332,61 @@
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.BossHeadSlot(System.Int32@)">
             <summary>
-            Allows you to customize the boss head texture used by an NPC based on its state. Set index to -1 to stop the texture from being displayed.
+            允许您根据 NPC 的状态自定义 NPC 使用的 Boss 头像图标贴图。将索引设置为 -1 以不显示贴图。
             </summary>
-            <param name="index">The index for NPCID.Sets.BossHeadTextures</param>
+            <param name="index">用于 NPCID.Sets.BossHeadTextures 的索引</param>
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.BossHeadRotation(System.Single@)">
             <summary>
-            Allows you to customize the rotation of this NPC's boss head icon on the map.
+            允许您自定义此 Boss 的头部图标在地图上的旋转。
             </summary>
             <param name="rotation"></param>
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.BossHeadSpriteEffects(Microsoft.Xna.Framework.Graphics.SpriteEffects@)">
             <summary>
-            Allows you to flip this NPC's boss head icon on the map.
+            允许您自定义此 Boss 的头部图标在地图上的翻转。
             </summary>
             <param name="spriteEffects"></param>
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.GetAlpha(Microsoft.Xna.Framework.Color)">
             <summary>
-            Allows you to determine the color and transparency in which this NPC is drawn. Return null to use the default color (normally light and buff color). Returns null by default.
+            允许您确定绘制此 NPC 的颜色和透明度。 返回 null 以使用默认颜色(通常为浅色和浅黄色)。默认返回 null。
             </summary>
             <param name="drawColor"></param>
             <returns></returns>
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.DrawEffects(Microsoft.Xna.Framework.Color@)">
             <summary>
-            Allows you to add special visual effects to this NPC (such as creating dust), and modify the color in which the NPC is drawn.
+            允许您为此 NPC 添加特殊视觉效果(例如制造灰尘)，并修改绘制 NPC 的颜色。
             </summary>
             <param name="drawColor"></param>
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.PreDraw(Microsoft.Xna.Framework.Graphics.SpriteBatch,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color)">
             <summary>
-            Allows you to draw things behind this NPC, or to modify the way this NPC is drawn. Substract screenPos from the draw position before drawing. Return false to stop the game from drawing the NPC (useful if you're manually drawing the NPC). Returns true by default.
+            允许您在该 NPC 后进行绘制 (绘制会被本体覆盖)，或修改绘制该 NPC 的方式。绘制前从绘制位置减去 screenPos。返回 false 以阻止游戏绘制 NPC(如果您打算手动绘制 NPC 则很有用)。默认情况下返回 true。
             </summary>
-            <param name="spriteBatch">The spritebatch to draw on</param>
-            <param name="screenPos">The screen position used to translate world position into screen position</param>
-            <param name="drawColor">The color the NPC is drawn in</param>
+            <param name="spriteBatch">用于绘制的 SpriteBatch 实例</param>
+            <param name="screenPos">用于将世界位置转换为屏幕位置的屏幕位置参数</param>
+            <param name="drawColor">NPC 的绘制颜色</param>
             <returns></returns>
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.PostDraw(Microsoft.Xna.Framework.Graphics.SpriteBatch,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color)">
             <summary>
-            Allows you to draw things in front of this NPC. Substract screenPos from the draw position before drawing. This method is called even if PreDraw returns false.
+            允许你在这个 NPC 前进行绘制 (本体会被绘制覆盖)。绘制位置应为世界位置减去 screenPos。即使 PreDraw 返回 false，也会调用此方法。
             </summary>
-            <param name="spriteBatch">The spritebatch to draw on</param>
-            <param name="screenPos">The screen position used to translate world position into screen position</param>
-            <param name="drawColor">The color the NPC is drawn in</param>
+            <param name="spriteBatch">用于绘制的 SpriteBatch 实例</param>
+            <param name="screenPos">用于将世界位置转换为屏幕位置的屏幕位置参数</param>
+            <param name="drawColor">NPC 的绘制颜色</param>
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.DrawBehind(System.Int32)">
             <summary>
-            When used in conjunction with "NPC.hide = true", allows you to specify that this NPC should be drawn behind certain elements. Add the index to one of Main.DrawCacheNPCsMoonMoon, DrawCacheNPCsOverPlayers, DrawCacheNPCProjectiles, or DrawCacheNPCsBehindNonSolidTiles.
+            当与 <code>NPC.hide = true</code> 结合使用时，允许您指定此 NPC 应绘制在某些元素后面。将NPC索引(<see cref="F:Terraria.Entity.whoAmI"/>)添加到 Main.DrawCacheNPCsMoonMoon、DrawCacheNPCsOverPlayers、DrawCacheNPCProjectiles 或 DrawCacheNPCsBehindNonSolidTiles 之一。
             </summary>
             <param name="index"></param>
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.DrawHealthBar(System.Byte,System.Single@,Microsoft.Xna.Framework.Vector2@)">
             <summary>
-            Allows you to control how the health bar for this NPC is drawn. The hbPosition parameter is the same as Main.hbPosition; it determines whether the health bar gets drawn above or below the NPC by default. The scale parameter is the health bar's size. By default, it will be the normal 1f; most bosses set this to 1.5f. Return null to let the normal vanilla health-bar-drawing code to run. Return false to stop the health bar from being drawn. Return true to draw the health bar in the position specified by the position parameter (note that this is the world position, not screen position).
+            允许您控制如何绘制此 NPC 的生命值条。hbPosition参数同Main.hbPosition，它决定默认情况下生命值条是绘制在 NPC 上方还是下方。scale 参数是生命值条的大小，默认情况下，它将是正常的 1f，大多数 Boss 将其设置为 1.5f。 返回 null 以运行普通的原版生命值条绘制代码。返回 false 以阻止原版绘制代码运行。 返回 true 以在 position 参数指定的位置绘制生命值条(注意这是世界位置，而不是屏幕位置)。
             </summary>
             <param name="hbPosition"></param>
             <param name="scale"></param>
@@ -10398,14 +10395,14 @@
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.SpawnChance(Terraria.ModLoader.NPCSpawnInfo)">
             <summary>
-            Whether or not this NPC can spawn with the given spawning conditions. Return the weight for the chance of this NPC to spawn compared to vanilla mobs. All vanilla mobs combined have a total weight of 1. Returns 0 by default, which disables natural spawning. Remember to always use spawnInfo.player and not Main.LocalPlayer when checking Player or ModPlayer fields, otherwise your mod won't work in Multiplayer.
+            此 NPC 是否可以在给定的生成条件下生成。返回此 NPC 与原版生物相比生成几率的权重 (所有原版生物的总权重为 1)。默认返回 0，这会禁用自然生成。请记住在检查 Player 或 ModPlayer 字段时始终使用 spawnInfo.player 而不是 Main.LocalPlayer，否则您的模组将无法在多人游戏中正常运行。
             </summary>
             <param name="spawnInfo"></param>
             <returns></returns>
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.SpawnNPC(System.Int32,System.Int32)">
             <summary>
-            Allows you to customize how this NPC is created when it naturally spawns (for example, its position or ai array). Return the return value of NPC.NewNPC. By default this method spawns this NPC on top of the tile at the given coordinates.
+            允许您自定义此 NPC 在自然生成时的创建方式(例如，其位置或 ai 数组)。返回 NPC.NewNPC 的返回值。 默认情况下，此方法会在给定坐标处的物块顶部生成此 NPC。
             </summary>
             <param name="tileX"></param>
             <param name="tileY"></param>
@@ -10413,7 +10410,7 @@
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.CanTownNPCSpawn(System.Int32,System.Int32)">
             <summary>
-            Whether or not the conditions have been met for this town NPC to be able to move into town. For example, the Demolitionist requires that any player has an explosive.
+            该城镇NPC是否具备入住条件。例如，爆破专家要求有至少一个玩家拥有炸药。
             </summary>
             <param name="numTownNPCs"></param>
             <param name="money"></param>
@@ -10421,7 +10418,7 @@
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.CheckConditions(System.Int32,System.Int32,System.Int32,System.Int32)">
             <summary>
-            Allows you to define special conditions required for this town NPC's house. For example, Truffle requires the house to be in an aboveground mushroom biome.
+            允许您自定义该城镇 NPC 房屋所需的特殊条件。例如，松露人要求房屋位于地表蘑菇生物群落中。
             </summary>
             <param name="left"></param>
             <param name="right"></param>
@@ -10431,84 +10428,83 @@
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.UsesPartyHat">
             <summary>
-            Allows you to determine whether this town NPC wears a party hat during a party. Returns true by default.
+            允许您确定该城镇 NPC 在派对期间是否戴派对帽。 默认情况下返回 true。
             </summary>
             <returns></returns>
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.CanChat">
             <summary>
-            Allows you to determine whether this NPC can talk with the player. By default, returns if the NPC is a town NPC.
-            <para></para>
-            This hook is not based on the type of the NPC, and is queried specifically on the ModNPC itself, regardless of if,
-            for example, the type of the NPC instance is changed. Returning true in all circumstances will *always* make the NPC
-            able to be chatted with no matter what else you do the NPC instance itself.
+            允许您确定此 NPC 是否可以与玩家交谈。默认情况下，如果这是城镇 NPC，则返回 true。
+            <para/>
+            这个钩子不是基于 NPC 的类型，而是专门针对 ModNPC 本身进行查询，而不管 NPC 实例的类型是否发生变化。
+            在所有情况下返回 true 将<b>总是</b>使 NPC 能够与 NPC 聊天，无论您对 NPC 实例本身做了什么。
             </summary>
             <returns></returns>
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.GetChat">
             <summary>
-            Allows you to give this NPC a chat message when a player talks to it. By default returns something embarrassing.
+            允许您在玩家与该 NPC 交谈时向其发送聊天消息。默认情况下返回一些令人尴尬的东西。(指我的作者没给我设置对话)
             </summary>
             <returns></returns>
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.SetChatButtons(System.String@,System.String@)">
             <summary>
-            Allows you to set the text for the buttons that appear on this NPC's chat window. A parameter left as an empty string will not be included as a button on the chat window.
+            允许您设置出现在该 NPC 聊天窗口上的按钮的文本。保留为空字符串的参数将导致相应按钮不包含在聊天窗口中。
             </summary>
             <param name="button"></param>
             <param name="button2"></param>
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.OnChatButtonClicked(System.Boolean,System.Boolean@)">
             <summary>
-            Allows you to make something happen whenever a button is clicked on this NPC's chat window. The firstButton parameter tells whether the first button or second button (button and button2 from SetChatButtons) was clicked. Set the shop parameter to true to open this NPC's shop.
+            允许您在单击此 NPC 的聊天窗口上的按钮时使某些事情发生。 firstButton 参数告知是单击了第一个按钮还是第二个按钮(来自 SetChatButtons 的 button 和 button2)。将 shop 参数设置为 true 以打开此 NPC 的商店。
             </summary>
             <param name="firstButton"></param>
             <param name="shop"></param>
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.SetupShop(Terraria.Chest,System.Int32@)">
             <summary>
-            Allows you to add items to this NPC's shop. Add an item by setting the defaults of shop.item[nextSlot] then incrementing nextSlot. In the end, nextSlot must have a value of 1 greater than the highest index in shop.item that contains an item.
+            允许您将物品添加到此 NPC 的商店。通过设置 shop.item[nextSlot] 的默认值然后增加 nextSlot 来添加一个物品。所有物品添加完毕后，nextSlot 的值必须为 shop.item 中存在的所有商品的最高索引值加上 1。
             </summary>
             <param name="shop"></param>
             <param name="nextSlot"></param>
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.CanGoToStatue(System.Boolean)">
             <summary>
-            Whether this NPC can be telported to a King or Queen statue. Returns false by default.
+            此 NPC 是否可以传送到国王或王后雕像。 默认情况下返回 false。
             </summary>
-            <param name="toKingStatue">Whether the NPC is being teleported to a King or Queen statue.</param>
+            <param name="toKingStatue">NPC 是否被传送到国王或王后雕像。</param>
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.OnGoToStatue(System.Boolean)">
             <summary>
-            Allows you to make things happen when this NPC teleports to a King or Queen statue.
-            This method is only called server side.
+            当此 NPC 传送到国王或王后雕像时，您可以让事情发生。
+            此方法仅在服务器端调用。
             </summary>
-            <param name="toKingStatue">Whether the NPC was teleported to a King or Queen statue.</param>
+            <param name="toKingStatue">NPC 是否被传送到国王或王后雕像。</param>
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.TownNPCAttackStrength(System.Int32@,System.Single@)">
             <summary>
-            Allows you to determine the damage and knockback of this town NPC's attack before the damage is scaled. (More information on scaling in GlobalNPC.BuffTownNPCs.)
+            允许您在游戏应用全局伤害乘数之前确定该城镇 NPC 攻击的伤害和击退。(更多相关信息在 GlobalNPC.BuffTownNPC)
             </summary>
             <param name="damage"></param>
             <param name="knockback"></param>
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.TownNPCAttackCooldown(System.Int32@,System.Int32@)">
             <summary>
-            Allows you to determine the cooldown between each of this town NPC's attack. The cooldown will be a number greater than or equal to the first parameter, and less then the sum of the two parameters.
+            允许您确定每个城镇 NPC 的攻击之间的冷却时间。 冷却时间将是大于或等于第一个参数的数字，并且小于两个参数的总和。
             </summary>
             <param name="cooldown"></param>
             <param name="randExtraCooldown"></param>
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.TownNPCAttackProj(System.Int32@,System.Int32@)">
             <summary>
-            Allows you to determine the projectile type of this town NPC's attack, and how long it takes for the projectile to actually appear. This hook is only used when the town NPC has an attack type of 0 (throwing), 1 (shooting), or 2 (magic).
+            允许您确定该城镇 NPC 攻击的射弹类型，以及射弹实际出现所需的时间。这个钩子仅在城镇 NPC 的攻击类型为 0(投掷)、1(射击)或 2(魔法)时使用。
             </summary>
             <param name="projType"></param>
             <param name="attackDelay"></param>
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.TownNPCAttackProjSpeed(System.Single@,System.Single@,System.Single@)">
             <summary>
-            Allows you to determine the speed at which this town NPC throws a projectile when it attacks. Multiplier is the speed of the projectile, gravityCorrection is how much extra the projectile gets thrown upwards, and randomOffset allows you to randomize the projectile's velocity in a square centered around the original velocity. This hook is only used when the town NPC has an attack type of 0 (throwing), 1 (shooting), or 2 (magic).
+            允许您确定此城镇 NPC 攻击时射出射弹的速度。 multiplier 是射弹的速度，gravityCorrection 是射弹向上抛出的额外量，randomOffset 允许您在以原始速度为中心的正方形中随机化抛射物的速度。这个钩子仅在城镇 NPC 的攻击类型为 0(投掷)、1(射击)或 2(魔法)时使用。
             </summary>
             <param name="multiplier"></param>
             <param name="gravityCorrection"></param>
@@ -10516,26 +10512,26 @@
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.TownNPCAttackShoot(System.Boolean@)">
             <summary>
-            Allows you to tell the game that this town NPC has already created a projectile and will still create more projectiles as part of a single attack so that the game can animate the NPC's attack properly. Only used when the town NPC has an attack type of 1 (shooting).
+            允许您告诉游戏这个城镇 NPC 已经创建了一个射弹并且仍将在单次攻击中创建更多射弹，以便游戏可以正确地激活 NPC 的攻击。仅在城镇 NPC 的攻击类型为 1(射击) 时使用。
             </summary>
             <param name="inBetweenShots"></param>
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.TownNPCAttackMagic(System.Single@)">
             <summary>
-            Allows you to control the brightness of the light emitted by this town NPC's aura when it performs a magic attack. Only used when the town NPC has an attack type of 2 (magic)
+            允许您控制该城镇 NPC 的光环在进行魔法攻击时发出的光的亮度。 仅在城镇 NPC 的攻击类型为 2(施法) 时使用
             </summary>
             <param name="auraLightMultiplier"></param>
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.TownNPCAttackSwing(System.Int32@,System.Int32@)">
             <summary>
-            Allows you to determine the width and height of the item this town NPC swings when it attacks, which controls the range of this NPC's swung weapon. Only used when the town NPC has an attack type of 3 (swinging).
+            可以决定本镇NPC攻击时挥舞物品的宽度和高度，控制本NPC挥舞武器的范围。仅在城镇 NPC 的攻击类型为 3(挥舞) 时使用。
             </summary>
             <param name="itemWidth"></param>
             <param name="itemHeight"></param>
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.DrawTownAttackGun(System.Single@,System.Int32@,System.Int32@)">
             <summary>
-            Allows you to customize how this town NPC's weapon is drawn when this NPC is shooting (this NPC must have an attack type of 1). Scale is a multiplier for the item's drawing size, item is the ID of the item to be drawn, and closeness is how close the item should be drawn to the NPC.
+            允许您自定义此 NPC 射击时该城镇 NPC 武器的拔出方式(此 NPC 的攻击类型必须为 1)。 scale 是物品绘制大小的乘数，item 是要绘制的物品的 ID，closeness 是项目应该与 NPC 绘制的距离。
             </summary>
             <param name="scale"></param>
             <param name="item"></param>
@@ -10543,7 +10539,7 @@
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.DrawTownAttackSwing(Microsoft.Xna.Framework.Graphics.Texture2D@,System.Int32@,System.Single@,Microsoft.Xna.Framework.Vector2@)">
             <summary>
-            Allows you to customize how this town NPC's weapon is drawn when this NPC is swinging it (this NPC must have an attack type of 3). Item is the Texture2D instance of the item to be drawn (use Main.itemTexture[id of item]), itemSize is the width and height of the item's hitbox (the same values for TownNPCAttackSwing), scale is the multiplier for the item's drawing size, and offset is the offset from which to draw the item from its normal position.
+            允许您自定义当此 NPC 挥舞武器时该城镇 NPC 武器的使用参数(此 NPC 的攻击类型必须为 3)。 Item 是要绘制的项目的 Texture2D 实例(使用 Main.itemTexture[物品ID] 来获取)，itemSize 是物品碰撞箱的宽度和高度(TownNPCAttackSwing 的值相同)，scale 是物品绘制大小的乘数, offset 是从其正常位置绘制物品的偏移量。
             </summary>
             <param name="item"></param>
             <param name="itemSize"></param>
@@ -10552,39 +10548,36 @@
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.NeedSaving">
             <summary>
-            Makes this ModNPC save along the world even if it's not a townNPC. Defaults to false.
-            <br/><b>NOTE:</b> A town NPC will always be saved.
-            <br/><b>NOTE:</b> A NPC that needs saving will not despawn naturally.
+            使这个 ModNPC 在世界范围内保存，即使它不是城镇 NPC。 默认为 false。
+             <br/><b>注意：</b>城镇 NPC 将始终被保存。
+             <br/><b>注意：</b>需要保存的 NPC 不会自然消失。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.SaveData(Terraria.ModLoader.IO.TagCompound)">
             <summary>
-            Allows you to save custom data for the given item.
-            Allows you to save custom data for the given npc.
-            <br/>
-            <br/><b>NOTE:</b> The provided tag is always empty by default, and is provided as an argument only for the sake of convenience and optimization.
-            <br/><b>NOTE:</b> Try to only save data that isn't default values.
-            <br/><b>NOTE:</b> The npc may be saved even if NeedSaving returns false and this is not a townNPC, if another mod returns true on NeedSaving.
+            允许您为给定的 NPC 保存自定义数据。
+             <br/>
+             <br/><b>注意：</b>默认情况下提供的标签始终为空，仅作为参数提供是为了方便和优化。
+             <br/><b>注意：</b>尽量只保存非默认值的数据，以减少文件大小。
+             <br/><b>注意：</b>即使 NeedSaving 返回 false 并且这不是 townNPC，如果另一个模组在 NeedSaving 上返回 true，则 NPC 仍可能会被保存。
             </summary>
-            <param name="tag">The TagCompound to save data into. Note that this is always empty by default, and is provided as an argument</param>
+            <param name="tag">用于保存数据的 TagCompound。请注意，默认情况下它始终为空，并作为参数提供</param>
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.LoadData(Terraria.ModLoader.IO.TagCompound)">
             <summary>
-            Allows you to load custom data that you have saved for this npc.
+            允许您加载为该 NPC 保存的自定义数据。
             </summary>
-            <param name="tag">The tag.</param>
+            <param name="tag">用于加载数据的 TagCompound。</param>
         </member>
         <member name="T:Terraria.ModLoader.ModPacket">
              <summary>
-             This class inherits from BinaryWriter. This means that you can use all of its writing functions to send information between client and server. This class also comes with a Send method that's used to actually send everything you've written between client and server.
-            
-             ModPacket has all the same methods as BinaryWriter, and some additional ones.
+             该类继承自 <seealso cref="T:System.IO.BinaryWriter" />。这意味着您可以使用它的所有编写功能在客户端和服务器之间发送信息。此类还带有一个 Send 方法，用于实际发送您在客户端和服务器之间编写的所有内容。
+             ModPacket 具有与 <seealso cref="T:System.IO.BinaryWriter" /> 相同的所有方法，以及一些额外的方法。
              </summary>
-             <seealso cref="T:System.IO.BinaryWriter" />
         </member>
         <member name="M:Terraria.ModLoader.ModPacket.Send(System.Int32,System.Int32)">
             <summary>
-            Sends all the information you've written between client and server. If the toClient parameter is non-negative, this packet will only be sent to the specified client. If the ignoreClient parameter is non-negative, this packet will not be sent to the specified client.
+            在客户端和服务器之间发送您编写的所有信息。如果 toClient 参数为非负数，则此数据包将只发送给指定的客户端。如果 ignoreClient 参数为非负数，则不会将此数据包发送到指定的客户端。
             </summary>
         </member>
         <member name="T:Terraria.ModLoader.ModCactus">
@@ -11684,7 +11677,7 @@
             <br/>Called whenever <see cref="F:Terraria.ID.MessageID.SyncProjectile"/> is successfully sent, for example on projectile creation, or whenever Projectile.netUpdate is set to true in the update loop for that tick.
             <br/>Can be called on both server and client, depending on who owns the projectile.
             </summary>
-            <param name="writer">The writer.</param>
+            <param name="writer">用于给数据包写入数据的 BinaryWriter 实例</param>
         </member>
         <member name="M:Terraria.ModLoader.ModProjectile.ReceiveExtraAI(System.IO.BinaryReader)">
             <summary>
@@ -11692,7 +11685,7 @@
             <br/>Called whenever <see cref="F:Terraria.ID.MessageID.SyncProjectile"/> is successfully received.
             <br/>Can be called on both server and client, depending on who owns the projectile.
             </summary>
-            <param name="reader">The reader.</param>
+            <param name="reader">用于从数据包读取数据的 BinaryReader 实例</param>
         </member>
         <member name="M:Terraria.ModLoader.ModProjectile.ShouldUpdatePosition">
             <summary>
@@ -12212,417 +12205,419 @@
         </member>
         <member name="T:Terraria.ModLoader.ModSystem">
             <summary>
-            ModSystem is an abstract class that your classes can derive from. It contains general-use hooks, and, unlike Mod, can have unlimited amounts of types deriving from it.
+            ModSystem 是一个抽象类，您的类可以从中派生。它包含通用钩子，并且与 Mod 不同，它可以派生出无限数量的类型。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.SetupContent">
             <summary>
-            Unlike other ModTypes, SetupContent is unsealed for you to do whatever you need. By default it just calls SetStaticDefaults.
-            This is the place to finish initializing your mod's content. For content from other mods, and lookup tables, consider PostSetupContent
+            与其他 ModType 不同，SetupContent 是未密封的，您可以随心所欲地进行操作。默认情况下它只调用 SetStaticDefaults。
+            这是完成初始化模组内容的地方。对于来自其他模组的内容和查找表，使用 PostSetupContent
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.OnModLoad">
             <summary>
-            This hook is called right after Mod.Load(), which is guaranteed to be called after all content has been autoloaded.
+            此钩子在 Mod.Load() 之后立即调用，保证在所有内容已自动加载后调用。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.OnModUnload">
             <summary>
-            This hook is called right before Mod.UnLoad()
+            这个钩子在 Mod.Unload() 之前调用
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.PostSetupContent">
             <summary>
-            Allows you to load things in your system after the mod's content has been setup (arrays have been resized to fit the content, etc).
+            允许您在设置模组的内容后加载系统中的东西 (数组已调整长度以适合内容等)。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.AddRecipes">
             <summary>
-            Override this method to add recipes to the game.
-            <br/> It is recommended that you do so through instances of Recipe, since it provides methods that simplify recipe creation.
+            重写此方法以将配方添加到游戏中。
+            <br/>建议您通过 Recipe 的实例来执行此操作，因为它提供了简化配方创建的方法。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.PostAddRecipes">
             <summary>
-            This provides a hook into the mod-loading process immediately after recipes have been added.
-            <br/> You can use this to edit recipes added by other mods.
+            这个钩子在所有配方已被加载之后调用
+            <br/>您可以使用它来编辑由其他模组添加的配方。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.PostSetupRecipes">
             <summary>
-            Override this method to do treatment about recipes once they have been setup. You shouldn't edit any recipe here.
+            重写此方法以在设置配方后对其进行读取以设置其他东西。为了模组兼容性，你不应该在这里编辑任何配方。编辑配方请在 <see cref="M:Terraria.ModLoader.ModSystem.PostAddRecipes"> 重写方法中进行。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.AddRecipeGroups">
             <summary>
-            Override this method to add recipe groups to the game.
-            <br/> You must add recipe groups by calling the <see cref="M:Terraria.RecipeGroup.RegisterGroup(System.String,Terraria.RecipeGroup)"/> method here.
-            <br/> A recipe group is a set of items that can be used interchangeably in the same recipe.
+            重写此方法以将配方组添加到游戏中。
+            <br/> 您必须在此处调用<see cref="M:Terraria.RecipeGroup.RegisterGroup(System.String,Terraria.RecipeGroup)"/> 方法来添加配方组。
+            <br/> 配方组是一组可以在同一配方中互换使用的物品。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.OnWorldLoad">
             <summary>
-            Called whenever a world is loaded. This can be used to initialize data structures, etc.
-            <br/>If you need to access your data during worldgen, initialize it in <see cref="M:Terraria.ModLoader.ModSystem.PreWorldGen"/> instead, unless you also save it on the world, then you need both.
+            每当加载世界时调用。这可用于初始化数据结构等。
+            <br/>如果您需要在世界生成期间访问您的数据，请在 <see cref="M:Terraria.ModLoader.ModSystem.PreWorldGen"/> 中初始化数据，除非您同时将它保存于世界，否则您需要在这两个方法中都进行初始化。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.OnWorldUnload">
             <summary>
-            Called whenever a world is unloaded. Use this to deinitialize world-related data structures, etc.
+            每当卸载世界时调用。使用它来卸载与世界相关的数据结构等。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.ModifyScreenPosition">
             <summary>
-            Use this hook to modify Main.screenPosition after weapon zoom and camera lerp have taken place.
+            在发生武器缩放和相机线性插值后调用，使用此钩子修改 Main.screenPosition。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.ModifyTransformMatrix(Terraria.Graphics.SpriteViewMatrix@)">
             <summary>
-            Allows you to set the transformation of the screen that is drawn. (Translations, rotations, scales, etc.)
+            允许您设置绘制的屏幕的变换(Transformation)。(平移、旋转、缩放等)
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.UpdateUI(Microsoft.Xna.Framework.GameTime)">
             <summary>
-            Ran every update and suitable for calling Update for UserInterface classes
+            运行每个更新并适合调用 UserInterface 类的更新
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.PreUpdateEntities">
             <summary>
-            Use this if you want to do something before anything in the World gets updated.
-            Called after UI updates, but before anything in the World (Players, NPCs, Projectiles, Tiles) gets updated.
+            如果您想在实体更新之前执行某些操作，请重写此方法。
+            在 UI 更新之后，但在世界上的任何实体(玩家、NPC、射弹、物块)更新之前调用。
             <para />
-            When <see cref="F:Terraria.Main.autoPause" /> is true or <see cref="F:Terraria.Main.FrameSkipMode" /> is 0 or 2, the game may do a partial update. This means that it only updates menus and some animations, but not the World or Entities. This hook - and every hook after it - only gets called on frames with a full update.
+            当 <see cref="F:Terraria.Main.autoPause" /> 为 true 或者 <see cref="F:Terraria.Main.FrameSkipMode" /> 为 0 或 2 时(跳帧或自动暂停)，游戏可能会进行部分更新。这意味着它只更新菜单和一些动画，而不更新世界或实体。这个钩子——以及它后面的每个钩子——只会在具有完整更新的帧上(即游戏没有暂停且考虑了跳帧后)被调用。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.PreUpdatePlayers">
             <summary>
-            Called before Players get updated.
+            在玩家更新之前调用。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.PostUpdatePlayers">
             <summary>
-            Called after Players get updated.
+            在玩家更新后调用。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.PreUpdateNPCs">
             <summary>
-            Called before NPCs get updated.
+            在 NPC 更新之前调用。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.PostUpdateNPCs">
             <summary>
-            Called after NPCs get updated.
+            在 NPC 更新后调用。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.PreUpdateGores">
             <summary>
-            Called before Gores get updated.
+            在尸块(Gore)更新之前调用。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.PostUpdateGores">
             <summary>
-            Called after Gores get updated.
+            在尸块(Gore)更新之后调用。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.PreUpdateProjectiles">
             <summary>
-            Called before Projectiles get updated.
+            在射弹更新之前调用。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.PostUpdateProjectiles">
             <summary>
-            Called after Projectiles get updated.
+            在射弹更新后调用。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.PreUpdateItems">
             <summary>
-            Called before Items get updated.
+            在物品更新之前调用。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.PostUpdateItems">
             <summary>
-            Called after Items get updated.
+            在物品更新之后调用。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.PreUpdateDusts">
             <summary>
-            Called before Dusts get updated.
+            在粒子更新之前调用。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.PostUpdateDusts">
             <summary>
-            Called after Dusts get updated.
+            在粒子更新之后调用。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.PreUpdateTime">
             <summary>
-            Called before Time gets updated.
+            在时间更新之前调用。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.PostUpdateTime">
             <summary>
-            Called after Time gets updated.
+            在时间更新后调用。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.PreUpdateWorld">
             <summary>
-            Use this method to have things happen in the world. In vanilla Terraria, a good example of code suitable for this hook is how Falling Stars fall to the ground during the night.
-            <para/> This hook is not called for multiplayer clients.
+            在世界更新之前调用。
+            <para/>用这个方法让世界上的事情发生。在原版中，适用于此钩子的一个很好的代码示例是落星在夜间坠落到地面。
+            <para/>这个钩子不会在多人模式客户端被调用。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.PostUpdateWorld">
             <summary>
-            Use this method to have things happen in the world. In vanilla Terraria, a good example of code suitable for this hook is how Falling Stars fall to the ground during the night.
-            <para/> This hook is not called for multiplayer clients.
+            在世界更新之后调用。
+            <para/>用这个方法让世界上的事情发生。在原版中，适用于此钩子的一个很好的代码示例是落星在夜间坠落到地面。
+            <para/>这个钩子不会在多人模式客户端被调用。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.PreUpdateInvasions">
             <summary>
-            Called before Invasions get updated.
-            <para/> This hook is not called for multiplayer clients.
+            在入侵更新之前调用。
+            <para/>这个钩子不会在多人模式客户端被调用。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.PostUpdateInvasions">
             <summary>
-            Called after Invasions get updated.
-            <para/> This hook is not called for multiplayer clients.
+            在入侵更新之后调用。
+            <para/>这个钩子不会在多人模式客户端被调用。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.PostUpdateEverything">
             <summary>
-            Called after the Network got updated, this is the last hook that happens in an update.
+            在网络更新后调用，这是一轮更新中调用的最后一个钩子。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.ModifyInterfaceLayers(System.Collections.Generic.List{Terraria.UI.GameInterfaceLayer})">
             <summary>
-            Allows you to modify the elements of the in-game interface that get drawn. GameInterfaceLayer can be found in the Terraria.UI namespace. Check https://github.com/tModLoader/tModLoader/wiki/Vanilla-Interface-layers-values for vanilla interface layer names
+            允许您修改绘制的游戏界面元素。GameInterfaceLayer 可以在 Terraria.UI 命名空间中找到。查看 https://github.com/tModLoader/tModLoader/wiki/Vanilla-Interface-layers-values 以获取原版图层名称列表
             </summary>
-            <param name="layers">The layers.</param>
+            <param name="layers">图层列表</param>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.ModifyGameTipVisibility(System.Collections.Generic.IReadOnlyList{Terraria.ModLoader.GameTipData})">
             <summary>
-            Allows you to set the visibility of any added vanilla or modded GameTips. In order to add your OWN tips, add them in
-            your localization file, with the key prefix of "Mods.ModName.GameTips".
+            允许您设置任何添加的原版或模组游戏提示的可见性。为了添加您自己的提示，请将它们添加到您的本地化文件中，并以“Mods.ModName.GameTips”作为键值前缀。
             </summary>
-            <param name="gameTips"> The current list of all added game tips. </param>
+            <param name="gameTips"> 所有被添加的游戏提示的当前列表。 </param>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.PostDrawInterface(Microsoft.Xna.Framework.Graphics.SpriteBatch)">
              <summary>
-             Called after interface is drawn but right before mouse and mouse hover text is drawn. Allows for drawing interface.
-            
-             Note: This hook should no longer be used. It is better to use the ModifyInterfaceLayers hook.
+             在绘制界面之后但在绘制鼠标和光标悬停文本之前调用。允许绘制界面。
+             注意：不应再使用此钩子。最好使用 ModifyInterfaceLayers 钩子。
              </summary>
-             <param name="spriteBatch">The sprite batch.</param>
+             <param name="spriteBatch">用于绘制的 SpriteBatch 实例</param>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.PreDrawMapIconOverlay(System.Collections.Generic.IReadOnlyList{Terraria.Map.IMapLayer},Terraria.Map.MapOverlayDrawContext)">
             <summary>
-            Called right before map icon overlays are drawn. Use this hook to selectively hide existing <see cref="T:Terraria.Map.IMapLayer"/> or <see cref="T:Terraria.ModLoader.ModMapLayer"/>
+            在绘制地图图标叠加层之前调用。使用此钩子以隐藏现有的 <see cref="T:Terraria.Map.IMapLayer"/> 或 <see cref="T:Terraria.ModLoader.ModMapLayer"/>
             </summary>
             <param name="layers"></param>
             <param name="mapOverlayDrawContext"></param>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.PostDrawFullscreenMap(System.String@)">
             <summary>
-            Called while the fullscreen map is active. Allows custom drawing to the map. Using <see cref="T:Terraria.ModLoader.ModMapLayer"/> is more compatible and allows drawing on the minimap and fullscreen maps.
+            全屏地图处于活动状态时调用。用于在地图上绘制东西。建议使用 <see cref="T:Terraria.ModLoader.ModMapLayer"/>，其提供了一个更具兼容性且允许在小地图和全屏地图上绘制的方法。
             </summary>
-            <param name="mouseText">The mouse text.</param>
+            <param name="mouseText">光标悬停文本</param>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.PostUpdateInput">
             <summary>
-            Called after the input keys are polled. Allows for modifying things like scroll wheel if your custom drawing should capture that.
+            在检查输入按键之后调用。允许你捕获如鼠标滚轮这类输入按键。(译注: 不太理解，以下是原文)
+            <para/>Called after the input keys are polled. Allows for modifying things like scroll wheel if your custom drawing should capture that.
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.PreSaveAndQuit">
             <summary>
-            Called in SP or Client when the Save and Quit button is pressed. One use for this hook is clearing out custom UI slots to return items to the player.
+            按下“保存并退出”按钮时在单人模式或多人模式客户端中调用。此钩子的一种用途是清除自定义物品框UI以将物品退回给玩家。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.PostDrawTiles">
             <summary>
-            Called after drawing Tiles. Can be used for drawing a tile overlay akin to wires. Note that spritebatch should be begun and ended within this method.
+            在绘制物块后调用。可用于绘制类似于电线的物块覆盖层。请注意，SpriteBatch 应该自行在此方法中 Begin 和 End。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.ModifyTimeRate(System.Double@,System.Double@,System.Double@)">
             <summary>
-            Called after all other time calculations. Can be used to modify the speed at which time should progress per tick in seconds, along with the rate at which the tiles in the world and the events in the world should update with it.
-            All fields are measured in in-game minutes per real-life second (min/sec).
-            You may want to consider <see cref="F:Terraria.Main.fastForwardTime"/> and CreativePowerManager.Instance.GetPower&lt;CreativePowers.FreezeTime&gt;().Enabled here.
+            在所有其他时间计算之后调用。可用于修改以秒为单位的每帧的时间进行速度，以及世界中的物块和事件的更新速度。
+            所有字段均以现实生活中每秒钟的游戏分钟数(分钟/秒)来衡量。
+            <para/>如: 若将 dayRate 设置为 5，则世界时间流速将为每帧流经游戏中的 5 秒，即现实中的每 1 秒流经游戏中的 5 分钟，也就是游戏时间正常流速的 5 倍。
+            <para/>您可能需要在此处考虑 <see cref="F:Terraria.Main.fastForwardTime"/> 和 CreativePowerManager.Instance.GetPower&lt;CreativePowers.FreezeTime&gt;().Enabled 的情况
             </summary>
-            <param name="timeRate">The speed at which time flows in min/sec.</param>
-            <param name="tileUpdateRate">The speed at which tiles in the world update in min/sec.</param>
-            <param name="eventUpdateRate">The speed at which various events in the world (weather changes, fallen star/fairy spawns, etc.) update in min/sec.</param>
+            <param name="timeRate">世界时间流动的速度，以分钟/秒为单位。</param>
+            <param name="tileUpdateRate">世界中物块更新的速度(以分钟/秒为单位)。</param>
+            <param name="eventUpdateRate">世界上各种事件(天气变化、坠落之星/仙灵生成等)以分钟/秒为单位更新的速度。</param>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.SaveWorldData(Terraria.ModLoader.IO.TagCompound)">
             <summary>
-            Allows you to save custom data for this system in the current world. Useful for things like saving world specific flags.
-            <br/>For example, if your mod adds a boss and you want certain NPC to only spawn once it has been defeated, this is where you would store the information that that boss has been defeated in this world.
+            允许您在当前世界中保存此系统的自定义数据。对于保存世界特定标志之类的事情很有用。
+            <br/>例如，如果您的模组添加了一个 Boss，并且您希望某个 NPC 仅在其被击败后生成，那么您可以在此处存储该 Boss 在这个世界中被击败的信息。
             <br/>
-            <br/><b>NOTE:</b> The provided tag is always empty by default, and is provided as an argument only for the sake of convenience and optimization.
-            <br/><b>NOTE:</b> Try to only save data that isn't default values.
+            <br/><b>注意:</b> 默认情况下，提供的 TagCompound 标签始终为空，仅出于方便和优化的目的将其作为参数提供。
+            <br/><b>注意:</b> 尽量只保存非默认值的数据以降低世界文件大小。
             </summary>
-            <param name="tag"> The TagCompound to save data into. Note that this is always empty by default, and is provided as an argument only for the sake of convenience and optimization. </param>
+            <param name="tag"> 用于保存数据的 TagCompound。 请注意，这在默认情况下始终为空，并且仅为了方便和优化而作为参数提供。 </param>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.LoadWorldData(Terraria.ModLoader.IO.TagCompound)">
             <summary>
-            Allows you to load custom data you have saved for this system in the currently loading world.
-            <br/><b>Try to write defensive loading code that won't crash if something's missing.</b>
+            允许您在当前加载的世界中加载您为该系统保存的自定义数据。
+            <br/><b>请编写在缺少某些内容时不会崩溃的防御性加载代码。</b>
             </summary>
             <param name="tag"> The TagCompound to load data from. </param>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.CanWorldBePlayed(Terraria.IO.PlayerFileData,Terraria.IO.WorldFileData)">
             <summary>
-            Allows you to prevent the world and player from being loaded/selected as a valid combination, similar to Journey Mode pairing.
+            允许您阻止世界和玩家被加载/选择为有效组合，类似于旅行模式配对(旅行世界只有旅行模式玩家能进入，反之亦然)。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.NetSend(System.IO.BinaryWriter)">
             <summary>
-            Allows you to send custom data between clients and server, which will be handled in <see cref="M:Terraria.ModLoader.ModSystem.NetReceive(System.IO.BinaryReader)"/>. This is useful for syncing information such as bosses that have been defeated.
-            <br/>Called whenever <see cref="F:Terraria.ID.MessageID.WorldData"/> is successfully sent, for example after a boss is defeated, a new day starts, or a player joins the server.
-            <br/>Only called on the server.
+            允许您在客户端和服务器之间发送自定义数据，这将在 <see cref="M:Terraria.ModLoader.ModSystem.NetReceive(System.IO.BinaryReader)"/> 中处理。这对于同步信息很有用，例如同步 Boss 是否被击杀的数据。
+            <br/>每当 <see cref="F:Terraria.ID.MessageID.WorldData"/> 数据包成功发送时调用，例如在击败 Boss、新的一天开始或玩家加入服务器后。
+            <br/>仅在多人模式服务器端调用。
             </summary>
-            <param name="writer">The writer.</param>
+            <param name="writer">用于给数据包写入数据的 BinaryWriter 实例</param>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.NetReceive(System.IO.BinaryReader)">
             <summary>
-            Use this to receive information that was sent in <see cref="M:Terraria.ModLoader.ModSystem.NetSend(System.IO.BinaryWriter)"/>.
-            <br/>Called whenever <see cref="F:Terraria.ID.MessageID.WorldData"/> is successfully received.
-            <br/>Only called on the client.
+            使用它来接收在 <see cref="M:Terraria.ModLoader.ModSystem.NetSend(System.IO.BinaryWriter)"/> 中发送的信息。
+            <br/>每当成功接收到 <see cref="F:Terraria.ID.MessageID.WorldData"/> 数据包时调用。
+            <br/>只在多人模式客户端调用。
             </summary>
-            <param name="reader">The reader.</param>
+            <param name="reader">用于从数据包读取数据的 BinaryReader 实例</param>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.HijackGetData(System.Byte@,System.IO.BinaryReader@,System.Int32)">
             <summary>
-            Allows you to modify net message / packet information that is received before the game can act on it.
+            允许您在游戏进行操作之前修改收到的网络消息/数据包信息。
             </summary>
-            <param name="messageType">Type of the message.</param>
-            <param name="reader">The reader.</param>
-            <param name="playerNumber">The player number the message is from.</param>
+            <param name="messageType">数据信息类型</param>
+            <param name="reader">用于从数据包读取数据的 BinaryReader 实例</param>
+            <param name="playerNumber">数据信息来源的玩家编号(客户端编号)</param>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.HijackSendData(System.Int32,System.Int32,System.Int32,System.Int32,Terraria.Localization.NetworkText,System.Int32,System.Single,System.Single,System.Single,System.Int32,System.Int32,System.Int32)">
             <summary>
-            Hijacks the send data method. Only use if you absolutely know what you are doing. If any hooks return true, the message is not sent.
+            劫持发送数据方法。仅当您完全知道自己在做什么时才使用。如果在所有 ModSystem 中有任何此钩子返回 true，则不会发送消息。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.PreWorldGen">
             <summary>
-            Allows a mod to run code before a world is generated.
-            <br/>If you use this to initialize data used during worldgen, which you save on the world, also initialize it in <see cref="M:Terraria.ModLoader.ModSystem.OnWorldLoad"/>.
+            允许模组在生成世界之前运行自己的代码。
+            <br/>如果您使用它来初始化在世界生成期间使用的数据，即您保存在世界上的数据，也请在 <see cref="M:Terraria.ModLoader.ModSystem.OnWorldLoad"/> 中对其进行初始化。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.ModifyWorldGenTasks(System.Collections.Generic.List{Terraria.WorldBuilding.GenPass},System.Single@)">
             <summary>
-            A more advanced option to PostWorldGen, this method allows you modify the list of Generation Passes before a new world begins to be generated. <para/>
-            For example, removing the "Planting Trees" pass will cause a world to generate without trees. Placing a new Generation Pass before the "Dungeon" pass will prevent the the mod's pass from cutting into the dungeon.
+            作为 PostWorldGen 的更高级选项，此方法允许您在开始生成新世界之前修改世界生成步骤列表。<para/>
+            例如，移除“Planting Trees”步骤将导致生成一个没有树木的世界。在“Dungeon”步骤之前插入一个新的世界生成步骤将避免模组的结构破坏地牢结构(而是相反，地牢结构可能会破坏模组结构)。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.PostWorldGen">
             <summary>
-            Use this method to place tiles in the world after world generation is complete.
+            在世界生成完成后调用，使用此方法在世界中放置物块。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.ResetNearbyTileEffects">
             <summary>
-            Use this to reset any fields you set in any of your ModTile.NearbyEffects hooks back to their default values.
+            使用它可以将您在任何 ModTile.NearbyEffects 钩子中设置的任何字段重置为默认值。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.ModifyHardmodeTasks(System.Collections.Generic.List{Terraria.WorldBuilding.GenPass})">
             <summary>
-            Similar to ModifyWorldGenTasks, but occurs in-game when Hardmode starts. Can be used to modify which tasks should be done and/or add custom tasks. By default the list will only contain 4 items, the vanilla hardmode tasks called "Hardmode Good", "Hardmode Evil", "Hardmode Walls", and "Hardmode Announcment"
+            类似于 ModifyWorldGenTasks，但在困难模式开始时(当前世界第一次击杀血肉之墙后)在游戏中发生。可用于修改应完成的任务和/或添加自定义任务。默认情况下，列表将仅包含 4 个原版困难模式任务项目: "Hardmode Good"(生成神圣环境), "Hardmode Evil"(生成邪恶环境), "Hardmode Walls"(生成邪恶及神圣环境对应墙), "Hardmode Announcment"("光暗释放"的聊天框公告)
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.ModifySunLightColor(Microsoft.Xna.Framework.Color@,Microsoft.Xna.Framework.Color@)">
             <summary>
-            Allows you to modify color of light the sun emits.
+            允许您修改太阳发出的光的颜色。
             </summary>
-            <param name="tileColor">Tile lighting color</param>
-            <param name="backgroundColor">Background lighting color</param>
+            <param name="tileColor">照在物块上的颜色</param>
+            <param name="backgroundColor">照在背景上的颜色</param>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.ModifyLightingBrightness(System.Single@)">
             <summary>
-            Allows you to modify overall brightness of lights. Can be used to create effects similiar to what night vision and darkness (de)buffs give you. Values too high or too low might result in glitches. For night vision effect use scale 1.03
+            允许您修改光照的整体亮度。可用于创建类似于夜视增益和黑暗减益的效果。值太高或太低都可能导致故障。对于夜视效果，scale 为 1.03
             </summary>
-            <param name="scale">Brightness scale</param>
+            <param name="scale">光照亮度比例</param>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.TileCountsAvailable(System.ReadOnlySpan{System.Int32})">
             <summary>
-            Allows you to store information about how many of each tile is nearby the player. This is useful for counting how many tiles of a certain custom biome there are.
-            <br/> The <paramref name="tileCounts"/> parameter is a read-only span (treat this as an array) that stores the tile count indexed by tile type.
+            允许您存储有关玩家附近每个方块的数量的信息。这对于计算对于某个自定义生物群落的附近物块数量很有用。
+            <br/><paramref name="tileCounts"/> 参数是一个<b>只读</b>范围(将其视为数组)，用于存储按物块类型索引的原版物块计数。(如 tileCounts[TileID.Dirt] 表示附近的土块数量)
             </summary>
         </member>
         <member name="T:Terraria.ModLoader.ModTexturedType">
             <summary>
-            The base type for most modded things with textures.
+            大多数带有贴图的模组的基本类型。
             </summary>
         </member>
         <member name="P:Terraria.ModLoader.ModTexturedType.Texture">
             <summary>
-            The file name of this type's texture file in the mod loader's file space.
+            该类型的贴图文件在 ModLoader 的文件空间中的文件名。
             </summary>
         </member>
         <member name="T:Terraria.ModLoader.ModTile">
             <summary>
-            This class represents a type of tile that can be added by a mod. Only one instance of this class will ever exist for each type of tile that is added. Any hooks that are called will be called by the instance corresponding to the tile type. This is to prevent the game from using a massive amount of memory storing tile instances.<br/>
-            The <see href="https://github.com/tModLoader/tModLoader/wiki/Basic-Tile">Basic Tile Guide</see> teaches the basics of making a modded tile.
+            此类代表一种由模组添加的物块。对于添加的每种类型的物块，此类只会存在一个实例。任何被调用的钩子都将被与物块类型对应的 ModTile 实例调用。这是为了防止游戏耗费大量内存存储物块实例。<br/>
+            可参考<see href="https://github.com/tModLoader/tModLoader/wiki/Basic-Tile">tML官方基础物块教程</see>了解制作模组物块的基础知识。(译注: 中文教程可参考 fs49.org 网站上的<see href="https://fs49.org/2022/08/26/kid%ef%bc%9a%e7%89%a9%e5%9d%97%e5%b1%9e%e6%80%a7%e8%ae%b2%e8%a7%a3%e4%b8%80%ef%bc%9a%e5%9f%ba%e6%9c%ac%e7%89%a9%e5%9d%97/">这一篇</see>)
             </summary>
         </member>
         <member name="P:Terraria.ModLoader.ModTile.AnimationFrameHeight">
-            <summary> The height of a group of animation frames for this tile. Defaults to 0, which disables animations. </summary>
+            <summary> 此物块的一组动画帧的高度。默认为 0，即无动画。 </summary>
         </member>
         <member name="P:Terraria.ModLoader.ModTile.MineResist">
-            <summary> A multiplier describing how much this block resists harvesting. Higher values will make it take longer to harvest. Defaults to 1f. </summary>
+            <summary> 一个乘数，描述了该块抵抗挖掘的程度。较高的值将使挖掘时间更长。默认为 1f。 </summary>
         </member>
         <member name="P:Terraria.ModLoader.ModTile.MinPick">
-            <summary> The minimum pickaxe power required for pickaxes to mine this block. Defaults to 0. </summary>
+            <summary> 镐挖掘此块所需的最小镐力。默认为 0。</summary>
         </member>
         <member name="P:Terraria.ModLoader.ModTile.AdjTiles">
-            <summary> An array of the IDs of tiles that this tile can be considered as when looking for crafting stations. </summary>
+            <summary> 在查找制作站时可以将此物块视作的一系列物块 ID 的数组。(如: 要使得此物块可以作为工作台参与合成，则添加 <see cref="F:Terraria.ID.TileID.WorkBenches"/> 到此数组中) </summary>
         </member>
         <member name="P:Terraria.ModLoader.ModTile.CloseDoorID">
-            <summary> The ID of the tile that this door transforms into when it is closed. Defaults to -1, which means this tile isn't a door. </summary>
+            <summary> 这扇门关闭时变成的物块的 ID。默认为 -1，这意味着该物块不是门。 </summary>
         </member>
         <member name="P:Terraria.ModLoader.ModTile.OpenDoorID">
-            <summary> The ID of the tile that this door transforms into when it is opened. Defaults to -1, which means this tile isn't a door. </summary>
+            <summary> 这扇门打开时变成的物块的 ID。默认为 -1，这意味着该物块不是门。</summary>
         </member>
         <member name="P:Terraria.ModLoader.ModTile.ChestDrop">
-            <summary> The ID of the item that drops when this chest is destroyed. Defaults to 0. Honestly, this is only really used when the chest limit is reached on a server. </summary>
+            <summary> 当这个箱子被摧毁时掉落的物品的 ID。默认为 0。实际上，这仅在服务器端当世界上的箱子总数达到箱子限制时才真正使用。</summary>
         </member>
         <member name="P:Terraria.ModLoader.ModTile.DresserDrop">
-            <summary> The ID of the item that drops when this dresser is destroyed. Defaults to 0. Honestly, this is only really used when the chest limit is reached on a server. </summary>
+            <summary> 这个梳妆台被摧毁时掉落的物品的 ID。默认为 0。实际上，这仅在服务器端当世界上的箱子总数达到箱子限制时才真正使用。 </summary>
         </member>
         <member name="P:Terraria.ModLoader.ModTile.ContainerName">
-            <summary> The translations for the name that is displayed when this tile is opened as a chest or dresser. This won't be used if you don't add your tile to <see cref="F:Terraria.ID.TileID.Sets.BasicChest"/> or <see cref="F:Terraria.ID.TileID.Sets.BasicDresser"/>. </summary>
+            <summary> 当此物块作为箱子或梳妆台打开时显示的名称的翻译。如果您不将您的物块添加到 <see cref="F:Terraria.ID.TileID.Sets.BasicChest"/> 或 <see cref="F:Terraria.ID.TileID.Sets.BasicDresser"/> 则不会使用它。 </summary>
         </member>
         <member name="P:Terraria.ModLoader.ModTile.HighlightTexture">
-            <summary> The highlight texture used when this tile is selected by smart interact. Defaults to adding "_Highlight" onto the main texture. </summary>
+            <summary> 智能光标选择此物块时使用的高亮贴图路径。默认路径为在主贴图路径上添加“_Highlight”。 </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModTile.AddToArray(System.Int32[]@)">
             <summary>
-            A convenient method for adding this tile's Type to the given array. This can be used with the arrays in TileID.Sets.RoomNeeds.
+            将此物块的类型添加到给定数组的便捷方法。这可以与 <see cref="T:Terraria.ID.TileID.Sets.RoomNeeds"/> 中的数组一起使用。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModTile.AddMapEntry(Microsoft.Xna.Framework.Color,Terraria.Localization.LocalizedText)">
             <summary>
-            Adds an entry to the minimap for this tile with the given color and display name. This should be called in SetDefaults.
+            使用给定的颜色和显示名称向此物块的小地图添加一个条目。这应该在 SetDefaults 中调用。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModTile.AddMapEntry(Microsoft.Xna.Framework.Color,Terraria.ModLoader.ModTranslation)">
             <summary>
-            Adds an entry to the minimap for this tile with the given color and display name. This should be called in SetDefaults.
+            使用给定的颜色和显示名称向此物块的小地图添加一个条目。 这应该在 SetDefaults 中调用。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModTile.AddMapEntry(Microsoft.Xna.Framework.Color,Terraria.Localization.LocalizedText,System.Func{System.String,System.Int32,System.Int32,System.String})">
             <summary>
-            Adds an entry to the minimap for this tile with the given color, default display name, and display name function. The parameters for the function are the default display name, x-coordinate, and y-coordinate. This should be called in SetDefaults.
+            使用给定的颜色、默认显示名称和名称显示函数(Func)向此物块的小地图显示添加一个条目。名称显示函数的传入参数依次为: 默认显示名称, x坐标, y坐标，返回最终会显示的名称。这个方法应该在 SetDefaults 中被调用。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModTile.AddMapEntry(Microsoft.Xna.Framework.Color,Terraria.ModLoader.ModTranslation,System.Func{System.String,System.Int32,System.Int32,System.String})">
             <summary>
-            Adds an entry to the minimap for this tile with the given color, default display name, and display name function. The parameters for the function are the default display name, x-coordinate, and y-coordinate. This should be called in SetDefaults.
+            使用给定的颜色、默认显示名称和名称显示函数(Func)向此物块的小地图显示添加一个条目。名称显示函数的传入参数依次为: 默认显示名称, x坐标, y坐标，返回最终会显示的名称。这个方法应该在 SetDefaults 中被调用。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModTile.PostSetDefaults">
             <summary>
-            Allows you to override some default properties of this tile, such as Main.tileNoSunLight and Main.tileObsidianKill.
+            允许您设置此物块的一些默认属性，例如 <see cref="F:Terraria.Main.tileNoSunLight"/> 和 <see cref="F:Terraria.Main.tileObsidianKill"/>。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModTile.HasSmartInteract(System.Int32,System.Int32,Terraria.GameContent.ObjectInteractions.SmartInteractScanSettings)">
@@ -13009,130 +13004,130 @@
         </member>
         <member name="T:Terraria.ModLoader.ModType">
             <summary>
-            The base type for most modded things.
+            大多数模组内容的基本类型。
             </summary>
         </member>
         <member name="P:Terraria.ModLoader.ModType.Mod">
             <summary>
-             The mod this belongs to.
+             所属的模组。
              </summary>
         </member>
         <member name="P:Terraria.ModLoader.ModType.Name">
             <summary>
-            The internal name of this.
+            内部名称。
             </summary>
         </member>
         <member name="P:Terraria.ModLoader.ModType.FullName">
             <summary>
-            The internal name of this, including the mod it is from.
+            完整内部名，包括其来源的模组的内部名
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModType.Load">
             <summary>
-            Allows you to perform one-time loading tasks. Beware that mod content has not finished loading here, things like ModContent lookup tables or ID Sets are not fully populated.
-            <para>Use <see cref="M:Terraria.ModLoader.ModType.SetStaticDefaults"/> when you need to access content.</para>
+            允许您执行一次性加载任务。请注意，模组内容尚未在此处完成加载，ModContent 查找表或 ID 集等内容未完全填充。
+            <para/>当您需要访问这些内容时使用<see cref="M:Terraria.ModLoader.ModType.SetStaticDefaults"/>。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModType.IsLoadingEnabled(Terraria.ModLoader.Mod)">
             <summary>
-            Allows you to stop <see cref="M:Terraria.ModLoader.Mod.AddContent(Terraria.ModLoader.ILoadable)"/> from actually adding this content. Useful for items that can be disabled by a config.
+            允许您阻止 <see cref="M:Terraria.ModLoader.Mod.AddContent(Terraria.ModLoader.ILoadable)"/> 实际添加此内容。对于可以通过配置禁用的内容很有用。
             </summary>
-            <param name="mod">The mod adding this content</param>
+            <param name="mod">添加此内容的模组</param>
         </member>
         <member name="M:Terraria.ModLoader.ModType.Register">
             <summary>
-            If you make a new ModType, seal this override.
+            如果您制作新的 ModType，请密封(标记sealed)此方法。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModType.SetupContent">
             <summary>
-            If you make a new ModType, seal this override, and call <see cref="M:Terraria.ModLoader.ModType.SetStaticDefaults"/> in it.
+            如果您创建一个新的 ModType，请密封(标记sealed)此方法，并在其中调用 <see cref="M:Terraria.ModLoader.ModType.SetStaticDefaults"/>。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModType.SetStaticDefaults">
             <summary>
-            Allows you to modify the properties after initial loading has completed.
+            允许您在初始化完成后修改内容的属性。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModType.Unload">
             <summary>
-            Allows you to safely unload things you added in <see cref="M:Terraria.ModLoader.ModType.Load"/>.
+            允许您安全地卸载您在 <see cref="M:Terraria.ModLoader.ModType.Load"/> 中添加的内容。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModType.InitTemplateInstance">
             <summary>
-            Create dummy objects for instanced mod-types
+            为此 ModType 创建虚拟实例对象(dummy objects)
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModType.ValidateType">
             <summary>
-            Check for the correct overrides of different hook methods and fields and properties
+            检查不同钩子方法、字段、属性的正确重写
             </summary>
         </member>
         <member name="P:Terraria.ModLoader.ModType`2.IsCloneable">
             <summary>
-            Whether or not this type is cloneable. Cloning is supported if<br/>
-            all reference typed fields in each sub-class which doesn't override Clone are marked with [CloneByReference]
+            此类型是否可克隆。如果每个子类中没有覆盖克隆的所有引用类型字段都标有 [CloneByReference]，则支持克隆
             </summary>
         </member>
         <member name="P:Terraria.ModLoader.ModType`2.CloneNewInstances">
             <summary>
-            Whether to create new instances of this mod type via <see cref="M:Terraria.ModLoader.ModType`2.Clone(`0)"/> or via the default constructor
-            Defaults to false (default constructor).
+            是否通过 <see cref="M:Terraria.ModLoader.ModType`2.Clone(`0)"/> 或通过默认构造函数创建此 ModType 的新实例
+            默认为 false (使用默认构造函数)。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModType`2.Clone(`0)">
             <summary>
-            Create a copy of this instanced global. Called when an entity is cloned.
+            创建此实例化全局的副本。克隆实体时调用。
+            <para/>原文: Create a copy of this instanced global. Called when an entity is cloned.
             </summary>
-            <param name="newEntity">The new clone of the entity</param>
-            <returns>A clone of this mod type</returns>
+            <param name="newEntity">该实体的新克隆</param>
+            <returns>此 ModType 的一个克隆实例</returns>
         </member>
         <member name="M:Terraria.ModLoader.ModType`2.NewInstance(`0)">
             <summary>
-            Create a new instance of this ModType for a specific entity
+            为特定实体创建此 ModType 的新实例
             </summary>
-            <param name="entity">The entity instance the mod type is being instantiated for</param>
+            <param name="entity">正在为其实例化 ModType 的实体实例</param>
             <returns></returns>
         </member>
         <member name="T:Terraria.ModLoader.ModWall">
             <summary>
-            This class represents a type of wall that can be added by a mod. Only one instance of this class will ever exist for each type of wall that is added. Any hooks that are called will be called by the instance corresponding to the wall type.
+            此类代表一种可以由模组添加的墙 对于添加的每种类型的墙，此类只会存在一个实例。任何被调用的钩子都将由<b>与墙类型对应的 ModWall 实例</b>调用。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModWall.AddMapEntry(Microsoft.Xna.Framework.Color,Terraria.Localization.LocalizedText)">
             <summary>
-            Adds an entry to the minimap for this wall with the given color and display name. This should be called in SetDefaults.
+            使用给定的颜色和显示名称向此墙的小地图显示添加一个条目。这个方法应该在 SetDefaults 中被调用。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModWall.AddMapEntry(Microsoft.Xna.Framework.Color,Terraria.ModLoader.ModTranslation)">
             <summary>
-            Adds an entry to the minimap for this wall with the given color and display name. This should be called in SetDefaults.
+            使用给定的颜色和显示名称向此墙的小地图显示添加一个条目。这个方法应该在 SetDefaults 中被调用。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModWall.AddMapEntry(Microsoft.Xna.Framework.Color,Terraria.Localization.LocalizedText,System.Func{System.String,System.Int32,System.Int32,System.String})">
             <summary>
-            Adds an entry to the minimap for this wall with the given color, default display name, and display name function. The parameters for the function are the default display name, x-coordinate, and y-coordinate. This should be called in SetDefaults.
+            使用给定的颜色、默认显示名称和名称显示函数(Func)向此墙的小地图显示添加一个条目。名称显示函数的传入参数依次为: 默认显示名称, x坐标, y坐标，返回最终会显示的名称。这个方法应该在 SetDefaults 中被调用。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModWall.AddMapEntry(Microsoft.Xna.Framework.Color,Terraria.ModLoader.ModTranslation,System.Func{System.String,System.Int32,System.Int32,System.String})">
             <summary>
-            Adds an entry to the minimap for this wall with the given color, default display name, and display name function. The parameters for the function are the default display name, x-coordinate, and y-coordinate. This should be called in SetDefaults.
+            使用给定的颜色、默认显示名称和名称显示函数(Func)向此墙的小地图显示添加一个条目。名称显示函数的传入参数依次为: 默认显示名称, x坐标, y坐标，返回最终会显示的名称。这个方法应该在 SetDefaults 中被调用。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModWall.Drop(System.Int32,System.Int32,System.Int32@)">
             <summary>
-            Allows you to customize which items the wall at the given coordinates drops. Return false to stop the game from dropping the tile's default item (the type parameter). Returns true by default.
+            允许您自定义给定坐标处的墙掉落的物品，返回 false 以阻止墙掉落默认物品(type 参数对应物品)。默认返回 true。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModWall.KillWall(System.Int32,System.Int32,System.Boolean@)">
             <summary>
-            Allows you to determine what happens when the tile at the given coordinates is killed or hit with a hammer. Fail determines whether the tile is mined (whether it is killed).
+            允许您确定当给定坐标处的墙被移除或用锤子敲击时会发生什么。Fail 参数决定墙是否会被移除。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModWall.AnimateWall(System.Byte@,System.Byte@)">
             <summary>
-            Allows you to animate your wall. Use frameCounter to keep track of how long the current frame has been active, and use frame to change the current frame.
+            允许您为墙设置动画。使用 frameCounter 跟踪当前帧已激活多长时间，并使用 frame 更改当前帧。
             </summary>
         </member>
         <member name="T:Terraria.ModLoader.ModWaterStyle">
@@ -13142,90 +13137,90 @@
         </member>
         <member name="P:Terraria.ModLoader.ModWaterStyle.Slot">
             <summary>
-            The ID of the water style.
+            此水样式的ID。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModWaterStyle.ChooseWaterfallStyle">
             <summary>
-            The ID of the waterfall style the game should use when this water style is in use.
+            使用此水样式时游戏应使用的瀑布流样式的 ID。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModWaterStyle.GetSplashDust">
             <summary>
-            The ID of the dust that is created when anything splashes in water.
+            任何东西溅入水中时产生的粒子的 ID。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModWaterStyle.GetDropletGore">
             <summary>
-            The ID of the gore that represents droplets of water falling down from a block.
+            水滴从方块上落下的特效的尸块(Gore)ID。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModWaterStyle.LightColorMultiplier(System.Single@,System.Single@,System.Single@)">
             <summary>
-            Allows you to modify the light levels of the tiles behind the water. The light color components will be multiplied by the parameters.
+            允许您修改水后物块的光照衰减或增强级别。光照颜色分量将乘以参数。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModWaterStyle.BiomeHairColor">
             <summary>
-            Allows you to change the hair color resulting from the biome hair dye when this water style is in use.
+            允许您在使用这种水风格时更改生物群系染发剂产生的头发颜色。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModWaterStyle.GetRainTexture">
             <summary>
-            Returns the texture to be used when drawing rain of this water type.
-            <br/>Default uses the vanilla rain texture.
+            返回绘制这种水类型的雨时要使用的贴图。
+            <br/>默认使用原版的雨贴图。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModWaterStyle.GetRainVariant">
             <summary>
-            Return the variant of rain used. Equal to the offset in the rain texture divided by four.
-            <br/>Vanilla rain has three variants per biome, and so vanilla variants range from 0 to 3 * Main.maxLiquidTextures.
-            <br/>Default is a random number from 0 to 2, which creates normal vanilla forest biome rain.
+            返回使用的雨的变体。等于雨贴图中的偏移量除以四。
+            <br/>原版雨每个生物群落有三个变体，所以原版变体的范围从 0 到 3 * Main.maxLiquidTextures。
+            <br/>默认值是一个从 0 到 2 的随机数，它会产生正常的原版森林生物群系雨。
             </summary>
         </member>
         <member name="T:Terraria.ModLoader.ModWaterfallStyle">
             <summary>
-            Represents a style of waterfalls that gets drawn. This is mostly used to determine the color of the waterfall.
+            表示绘制的瀑布样式。这主要用于确定瀑布的颜色。
             </summary>
         </member>
         <member name="P:Terraria.ModLoader.ModWaterfallStyle.Slot">
             <summary>
-            The ID of this waterfall style.
+            此瀑布样式的 ID。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModWaterfallStyle.AddLight(System.Int32,System.Int32)">
             <summary>
-            Allows you to create light at a tile occupied by a waterfall of this style.
+            允许您在被这种样式的瀑布触及的物块上创建光源。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModWaterfallStyle.ColorMultiplier(System.Single@,System.Single@,System.Single@,System.Single)">
             <summary>
-            Allows you to determine the color multiplier acting on waterfalls of this style. Useful for waterfalls whose colors change over time.
+            允许您确定作用于此样式瀑布的颜色倍增器(ColorMultiplier)。适用于颜色随时间变化的瀑布。
             </summary>
         </member>
         <member name="T:Terraria.ModLoader.MountLoader">
             <summary>
-            This serves as the central place from which mounts are stored and mount-related functions are carried out.
+            这是存储坐骑和执行坐骑相关功能的中心位置。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.MountLoader.GetMount(System.Int32)">
             <summary>
-            Gets the ModMount instance corresponding to the given type. Returns null if no ModMount has the given type.
+            获取与给定 type 对应的 ModMount 实例。如果没有 ModMount 与给定 type 对应，则返回 null。
             </summary>
-            <param name="type">The type of the mount.</param>
-            <returns>Null if not found, otherwise the ModMount associated with the mount.</returns>
+            <param name="type">坐骑的 type</param>
+            <returns>如果找不到则为 Null，否则为与坐骑关联的 ModMount。</returns>
         </member>
         <member name="M:Terraria.ModLoader.MountLoader.UseAbility(Terraria.Player,Microsoft.Xna.Framework.Vector2,System.Boolean)">
             <summary>
-            Allows you to make things happen while the mouse is pressed while the mount is active. Called each tick the mouse is pressed.
+            使用坐骑时，在鼠标按下的每帧调用。允许你在鼠标按下时使事件发生。
             </summary>
             <param name="player"></param>
             <param name="mousePosition"></param>
-            <param name="toggleOn">Does nothing yet</param>
+            <param name="toggleOn">是否还什么都没做</param>
         </member>
         <member name="M:Terraria.ModLoader.MountLoader.AimAbility(Terraria.Mount,Terraria.Player,Microsoft.Xna.Framework.Vector2)">
             <summary>
-            Allows you to make things happen when the mount ability is aiming (while charging).
+            允许您在坐骑技能瞄准(蓄力)时使事情发生。
             </summary>
             <param name="mount"></param>
             <param name="player"></param>
@@ -13233,30 +13228,30 @@
         </member>
         <member name="M:Terraria.ModLoader.MountLoader.SetMount(Terraria.Mount,Terraria.Player,System.Boolean@)">
             <summary>
-            Allows you to make things happen when this mount is spawned in. Useful for player-specific initialization, utilizing player.mount._mountSpecificData or a ModPlayer class since ModMount is shared between all players.
-            Custom dust spawning logic is also possible via the skipDust parameter.
+            允许您在召唤此坐骑时使事情发生。对于玩家特定的初始化很有用，利用 player.mount._mountSpecificData 或 ModPlayer 类，因为 ModMount 在所有玩家之间共享。
+            也可以通过 skipDust 参数自定义粒子生成逻辑。
             </summary>
             <param name="mount"></param>
             <param name="player"></param>
-            <param name="skipDust">Set to true to skip the vanilla dust spawning logic</param>
+            <param name="skipDust">设置为 true 以跳过原版粒子生成逻辑</param>
         </member>
         <member name="M:Terraria.ModLoader.MountLoader.Dismount(Terraria.Mount,Terraria.Player,System.Boolean@)">
             <summary>
-            Allows you to make things happen when this mount is de-spawned. Useful for player-specific cleanup, see SetMount.
-            Custom dust spawning logic is also possible via the skipDust parameter.
+            允许您在该坐骑消失时让事情发生。 对特定于玩家的清理很有用，请参阅 SetMount。
+            也可以通过 skipDust 参数自定义粒子生成逻辑。
             </summary>
             <param name="mount"></param>
             <param name="player"></param>
-            <param name="skipDust">Set to true to skip the vanilla dust spawning logic</param>
+            <param name="skipDust">设置为 true 以跳过原版粒子生成逻辑</param>
         </member>
         <member name="M:Terraria.ModLoader.MountLoader.Draw(Terraria.Mount,System.Collections.Generic.List{Terraria.DataStructures.DrawData},System.Int32,Terraria.Player,Microsoft.Xna.Framework.Graphics.Texture2D@,Microsoft.Xna.Framework.Graphics.Texture2D@,Microsoft.Xna.Framework.Vector2@,Microsoft.Xna.Framework.Rectangle@,Microsoft.Xna.Framework.Color@,Microsoft.Xna.Framework.Color@,System.Single@,Microsoft.Xna.Framework.Graphics.SpriteEffects@,Microsoft.Xna.Framework.Vector2@,System.Single@,System.Single)">
             <summary>
-            See <see cref="M:Terraria.ModLoader.ModMount.Draw(System.Collections.Generic.List{Terraria.DataStructures.DrawData},System.Int32,Terraria.Player,Microsoft.Xna.Framework.Graphics.Texture2D@,Microsoft.Xna.Framework.Graphics.Texture2D@,Microsoft.Xna.Framework.Vector2@,Microsoft.Xna.Framework.Rectangle@,Microsoft.Xna.Framework.Color@,Microsoft.Xna.Framework.Color@,System.Single@,Microsoft.Xna.Framework.Graphics.SpriteEffects@,Microsoft.Xna.Framework.Vector2@,System.Single@,System.Single)"/>
+            参见 <see cref="M:Terraria.ModLoader.ModMount.Draw(System.Collections.Generic.List{Terraria.DataStructures.DrawData},System.Int32,Terraria.Player,Microsoft.Xna.Framework.Graphics.Texture2D@,Microsoft.Xna.Framework.Graphics.Texture2D@,Microsoft.Xna.Framework.Vector2@,Microsoft.Xna.Framework.Rectangle@,Microsoft.Xna.Framework.Color@,Microsoft.Xna.Framework.Color@,System.Single@,Microsoft.Xna.Framework.Graphics.SpriteEffects@,Microsoft.Xna.Framework.Vector2@,System.Single@,System.Single)"/>
             </summary>
         </member>
         <member name="T:Terraria.ModLoader.MountTextureType">
             <summary>
-            This is an enum of all possible types of extra mount textures for custom mounts. Use these as keys in the extraTextures dictionary passed to Mod.AddMount to give your mount front and back textures.
+            这是自定义坐骑的所有可能类型的额外坐骑贴图的枚举。使用这些作为传递给 Mod.AddMount 的 extraTextures 字典中的键值，以提供您的坐骑正面和背面纹理。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.MusicLoader.GetMusicSlot(Terraria.ModLoader.Mod,System.String)">
@@ -13318,80 +13313,80 @@
             </exception>
         </member>
         <member name="T:Terraria.ModLoader.NPCHappiness">
-            <summary> This struct provides access to an NPC type's NPC &amp; Biome relationships. </summary>
+            <summary> 这个结构体提供对特定NPC<b>对于另一个NPC和环境的关系</b>的访问 </summary>
         </member>
         <member name="F:Terraria.ModLoader.NPCHappiness.AffectionLevelToPriceMultiplier">
-            <summary> Allows you to modify the shop price multipliers associated with a (biome/npc type) relationship level. </summary>
+            <summary> 允许您修改与关系级别(生物群落/NPC类型)关联的商店价格乘数。 </summary>
         </member>
         <member name="T:Terraria.ModLoader.NPCHeadLoader">
             <summary>
-            This class serves as a central place from which NPC head slots are stored and NPC head textures are assigned. This can be used to obtain the corresponding slots to head textures.
+            这个类作为存储 NPC 头部贴图和分配 NPC 头部贴图的中心位置。这可用于获取头部贴图在相应数组中的索引。
             </summary>
         </member>
         <member name="F:Terraria.ModLoader.NPCHeadLoader.VanillaHeadCount">
             <summary>
-            The number of vanilla town NPC head textures that exist.
+            原版城镇 NPC 头部贴图的数量。
             </summary>
         </member>
         <member name="F:Terraria.ModLoader.NPCHeadLoader.VanillaBossHeadCount">
             <summary>
-            The number of vanilla boss head textures that exist.
+            原版 Boss 头部贴图的数量。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.NPCHeadLoader.GetHeadSlot(System.String)">
             <summary>
-            Gets the index of the head texture corresponding to the given texture path.
+            获取给定贴图路径对应的头部贴图索引。
             </summary>
-            <param name="texture">Relative texture path</param>
-            <returns>The index of the texture in the heads array, -1 if not found.</returns>
+            <param name="texture">贴图路径</param>
+            <returns>heads 数组中此贴图的索引，如果找不到则为 -1</returns>
         </member>
         <member name="M:Terraria.ModLoader.NPCHeadLoader.GetBossHeadSlot(System.String)">
             <summary>
-            Gets the index of the boss head texture corresponding to the given texture path.
+            获取给定贴图路径对应的Boss头部贴图的索引。
             </summary>
-            <param name="texture"></param>
-            <returns></returns>
+            <param name="texture">贴图路径</param>
+            <returns>bossHeads 数组中此贴图的索引，如果找不到则为 -1</returns>
         </member>
         <member name="T:Terraria.ModLoader.NPCLoader">
             <summary>
-            This serves as the central class from which NPC-related functions are carried out. It also stores a list of mod NPCs by ID.
+            这是执行 NPC 相关功能的中心类。它还按 ID 存储 ModNPC 列表。
             </summary>
         </member>
         <member name="F:Terraria.ModLoader.NPCLoader.blockLoot">
             <summary>
-            Allows you to stop an NPC from dropping loot by adding item IDs to this list. This list will be cleared whenever NPCLoot ends. Useful for either removing an item or change the drop rate of an item in the NPC's loot table. To change the drop rate of an item, use the PreNPCLoot hook, spawn the item yourself, then add the item's ID to this list.
+            允许您通过向此列表添加物品 ID 来阻止 NPC 掉落战利品。只要 NPCLoot 结束，这个列表就会被清除。对于移除物品或更改 NPC 战利品表中物品的掉落率很有用。要更改物品的掉落率，请使用 PreNPCLoot 钩子，自己生成物品，然后将物品的 ID 添加到此列表中。<b>(建议使用1.4tML新特性ModifyNPCLoot)</b>
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.NPCLoader.GetNPC(System.Int32)">
             <summary>
-            Gets the ModNPC instance corresponding to the specified type.
+            获取指定 type 对应的ModNPC实例。
             </summary>
-            <param name="type">The type of the npc</param>
-            <returns>The ModNPC instance in the npcs array, null if not found.</returns>
+            <param name="type">NPC 的 type</param>
+            <returns>在 npcs 数组(NPCLoader里的，不是Main.npc)中的对应 ModNPC 实例，如果找不到则为 null</returns>
         </member>
         <member name="T:Terraria.ModLoader.NPCLoot">
-            <summary> This readonly struct is a simple shortcut to <see cref="T:Terraria.GameContent.ItemDropRules.ItemDropDatabase"/>'s methods. </summary>
+            <summary> 这个只读结构(readonly struct)是 <see cref="T:Terraria.GameContent.ItemDropRules.ItemDropDatabase"/> 方法的简单快捷方式。 </summary>
         </member>
         <member name="T:Terraria.ModLoader.NPCSpawnInfo">
             <summary>
-            A struct that stores information regarding where an NPC is naturally spawning and the player it is spawning around. This serves to reduce the parameter count for ModNPC.CanSpawn and GlobalNPC.EditSpawnPool.
+            一个结构体(struct)，用于存储有关 NPC 自然生成位置及其生成周围玩家的信息。tML将其作为结构体存在来减少 ModNPC.CanSpawn 和 GlobalNPC.EditSpawnPool 的传参数量。
             </summary>
         </member>
         <member name="F:Terraria.ModLoader.NPCSpawnInfo.SpawnTileX">
             <summary>
-            The x-coordinate of the tile the NPC will spawn above.
+            NPC 将在其上方生成的物块的 X 坐标。
             </summary>
         </member>
         <member name="F:Terraria.ModLoader.NPCSpawnInfo.SpawnTileY">
             <summary>
-            The y-coordinate of the tile the NPC will spawn above.
+            NPC 将在其上方生成的物块的 Y 坐标。
             </summary>
         </member>
         <member name="F:Terraria.ModLoader.NPCSpawnInfo.Player">
             <summary>
-            The player that this NPC is spawning around.
-            For convenience, here are the player zones, which are also useful for determining NPC spawn:
-            (ZoneGranite, ZoneMarble, ZoneHive, ZoneGemCave are not actually proper spawning related checks, they are for visuals only (RGB), determined by the backwall type)
+            这个 NPC 用于作为生成基准的玩家 (详见Wiki上的NPC生成机制介绍)
+            为方便起见，以下是一系列指示玩家所处区域的布尔变量，这对于确定 NPC 生成也很有用:
+            (注意: ZoneGranite、ZoneMarble、ZoneHive、ZoneGemCave 实际上不是正确的生成相关检查，它们仅用于视觉效果 (键盘RGB光效)，由背景墙决定)
             <list type="bullet">
             <item><description>ZoneDungeon</description></item>
             <item><description>ZoneCorrupt</description></item>
@@ -13424,67 +13419,67 @@
         </member>
         <member name="F:Terraria.ModLoader.NPCSpawnInfo.PlayerFloorX">
             <summary>
-            The x-coordinate of the tile the player is standing on.
+            玩家站立的方块的 X 坐标。
             </summary>
         </member>
         <member name="F:Terraria.ModLoader.NPCSpawnInfo.PlayerFloorY">
             <summary>
-            The y-coordinate of the tile the player is standing on.
+            玩家站立的方块的 Y 坐标。
             </summary>
         </member>
         <member name="F:Terraria.ModLoader.NPCSpawnInfo.Sky">
             <summary>
-            Whether or not the player is in the sky biome, where harpies and wyverns spawn.
+            玩家是否在天空生物群系中，鹰身女妖和飞龙的生成地。
             </summary>
         </member>
         <member name="F:Terraria.ModLoader.NPCSpawnInfo.Lihzahrd">
             <summary>
-            Whether or not the player is inside the jungle temple, where Lihzahrds spawn.
+            玩家是否在丛林神庙内，丛林蜥蜴的生成地。
             </summary>
         </member>
         <member name="F:Terraria.ModLoader.NPCSpawnInfo.PlayerSafe">
             <summary>
-            Whether or not the player is in front of a player-placed wall or in a large town. If this is true, enemies that can attack through walls should not spawn (unless an invasion is in progress).
+            若玩家站在手动放置的墙前或是在大城镇中，则值为 true。如果为 true，那么可以穿墙攻击的敌怪就不会生成 (除非正在进行入侵)。
             </summary>
         </member>
         <member name="F:Terraria.ModLoader.NPCSpawnInfo.Invasion">
             <summary>
-            Whether or not there is an invasion going on and the player is near it.
+            是否有入侵正在进行且玩家在附近。
             </summary>
         </member>
         <member name="F:Terraria.ModLoader.NPCSpawnInfo.Water">
             <summary>
-            Whether or not the tile the NPC will spawn in contains water.
+            NPC 生成的物块是否有水。
             </summary>
         </member>
         <member name="F:Terraria.ModLoader.NPCSpawnInfo.Granite">
             <summary>
-            Whether or not the NPC will spawn on a granite block or the player is near a granite biome.
+            玩家是否靠近花岗岩环境或 NPC 将会在花岗岩块上生成。
             </summary>
         </member>
         <member name="F:Terraria.ModLoader.NPCSpawnInfo.Marble">
             <summary>
-            Whether or not the NPC will spawn on a marble block or the player is near a marble biome.
+            玩家是否靠近大理石环境或 NPC 将会在大理石块上生成。
             </summary>
         </member>
         <member name="F:Terraria.ModLoader.NPCSpawnInfo.SpiderCave">
             <summary>
-            Whether or not the player is in a spider cave or the NPC will spawn near one.
+            玩家是否处于蜘蛛洞或 NPC 将会在蜘蛛洞内生成。
             </summary>
         </member>
         <member name="F:Terraria.ModLoader.NPCSpawnInfo.PlayerInTown">
             <summary>
-            Whether or not the player is in a town. This is used for spawning critters instead of monsters.
+            玩家是否在城镇中。这用于生成小动物而不是怪物。
             </summary>
         </member>
         <member name="F:Terraria.ModLoader.NPCSpawnInfo.DesertCave">
             <summary>
-            Whether or not the player is in front of a desert wall or the NPC will spawn near one.
+            玩家是否处于危险沙漠墙前或 NPC 将会在危险沙漠墙前生成。
             </summary>
         </member>
         <member name="F:Terraria.ModLoader.NPCSpawnInfo.PlanteraDefeated">
             <summary>
-            Whether Plantera is defeated and the world is in hardmode. This isn't needed (it's easy to find by yourself), but it's a local flag in NPC.SpawnNPC, so it is included for completeness.
+            世纪之花是否被打败以及世界处于困难模式。这不是必需的 (你可以自行检查相关变量)，但它是 NPC.SpawnNPC 中的本地标志，因此为了完整性而将其包括在内。
             </summary>
         </member>
         <member name="F:Terraria.ModLoader.NPCSpawnInfo.SafeRangeX">
@@ -14618,7 +14613,7 @@
         </member>
         <member name="M:Terraria.Projectile.NewProjectile(Terraria.DataStructures.IEntitySource,System.Single,System.Single,System.Single,System.Single,System.Int32,System.Int32,System.Single,System.Int32,System.Single,System.Single)">
             <summary>
-            将给定类型的射弹发射到游戏世界中。生成位置由 X 和 Y 参数在世界坐标中给出。 SpeedX 和 SpeedY 决定初始速度。伤害为 Damage，击退为 KnockBack。 Owner 是产生射弹的玩家，几乎总是 Main.myPlayer。 ai0 和 ai1 将使用提供的值初始化 Projectile.ai[] 数组。这可用于将信息传递给 Projectile。必须编写 Projectile AI 代码才能利用这些值。返回值是生成的射弹在 <see cref="F:Terraria.Main.projectile"/> 数组中的索引。
+            将给定类型的射弹发射到游戏世界中。生成位置由 X 和 Y 参数在世界坐标中给出。SpeedX 和 SpeedY 决定初始速度。伤害为 Damage，击退为 KnockBack。Owner 是生成射弹的玩家，几乎总是 Main.myPlayer。 ai0 和 ai1 将使用提供的值初始化 Projectile.ai[] 数组。这可用于将信息传递给 Projectile。必须编写 Projectile AI 代码才能利用这些值。返回值是生成的射弹在 <see cref="F:Terraria.Main.projectile"/> 数组中的索引。
             <br/>确保此方法仅由射弹生成来源的客户端调用 (或由服务器调用)。如果不这样做，将导致世界上每个玩家都发射一次射弹。例如，如果在玩家中代码使用此方法，请确保首先检查 <code>if (Main.myPlayer == Player.whoAmI)</code> 以确保只有本地玩家端会生成射弹。
             <br/> 发射其他射弹的射弹应该检查 <code>if (Main.myPlayer == Projectile.owner)</code>
             <br/> 如果源是 NPC 或非玩家拥有的射弹，检查 <code>if (Main.netMode != NetmodeID.MultiplayerClient)</code> 将确保客户端不会尝试生成射弹。
