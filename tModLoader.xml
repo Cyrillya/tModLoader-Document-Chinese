@@ -7963,7 +7963,7 @@
             <summary>
             每当从客户端(如果当前是服务器)或服务器(如果当前是客户端)接收到网络消息/数据包时调用。whoAmI是发送数据包的客户端的ID (相当于发送方的 Main.myPlayer, 由服务器发送到客户端的数据包中此值为 -1)，reader 变量用于读取数据包所含的二进制数据。
             </summary>
-            <param name="reader">数据包读取器</param>
+            <param name="reader">用于从数据包读取数据的 BinaryReader 实例</param>
             <param name="whoAmI">发送该数据包的客户端(玩家)(由服务器发送到客户端的数据包中此值为 -1)</param>
         </member>
         <member name="T:Terraria.ModLoader.ModAccessorySlot">
