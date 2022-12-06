@@ -5128,158 +5128,159 @@
         </member>
         <member name="M:Terraria.ModLoader.GlobalItem.SetDefaults(Terraria.Item)">
             <summary>
-            Allows you to set the properties of any and every item that gets created.
+            允许您设置创建的任何物品的属性。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.GlobalItem.OnSpawn(Terraria.Item,Terraria.DataStructures.IEntitySource)">
             <summary>
-            Gets called when any item spawns in world
+            当任何物品在世界中生成时被调用
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.GlobalItem.ChoosePrefix(Terraria.Item,Terraria.Utilities.UnifiedRandom)">
             <summary>
-            Allows you to manually choose what prefix an item will get.
+            允许您手动选择物品将获得的前缀。
             </summary>
-            <returns>The ID of the prefix to give the item, -1 to use default vanilla behavior</returns>
+            <returns>将给予物品的前缀 ID，返回 -1 以使用默认的原版行为</returns>
         </member>
         <member name="M:Terraria.ModLoader.GlobalItem.PrefixChance(Terraria.Item,System.Int32,Terraria.Utilities.UnifiedRandom)">
-             <summary>
-             To prevent putting the item in the tinkerer slot, return false when pre is -3.
-             To prevent rolling of a prefix on spawn, return false when pre is -1.
-             To force rolling of a prefix on spawn, return true when pre is -1.
-            
-             To reduce the probability of a prefix on spawn (pre == -1) to X%, return false 100-4X % of the time.
-             To increase the probability of a prefix on spawn (pre == -1) to X%, return true (4X-100)/3 % of the time.
-            
-             To delete a prefix from an item when the item is loaded, return false when pre is the prefix you want to delete.
-             Use AllowPrefix to prevent rolling of a certain prefix.
-             </summary>
-             <param name="item"></param>
-             <param name="pre">The prefix being applied to the item, or the roll mode. -1 is when the item is naturally generated in a chest, crafted, purchased from an NPC, looted from a grab bag (excluding presents), or dropped by a slain enemy (if it's spawned with prefixGiven: -1). -2 is when the item is rolled in the tinkerer. -3 determines if the item can be placed in the tinkerer slot.</param>
-             <param name="rand"></param>
-             <returns></returns>
+            <summary>
+            要防止将物品放入哥布林工匠重铸槽中，请在 pre 为 -3 时返回 false。
+            <br/>要防止在生成时获取随机前缀，请在 pre 为 -1 时返回 false。
+            <br/>要在生成时强制获取随机前缀，请在 pre 为 -1 时返回 true。
+            <para/>
+            <br/>要将生成时获取前缀 (pre == -1) 的概率降低到 X%，请设置有 100-4X % 的几率返回 false。
+            <br/>要将生成时获取前缀 (pre == -1) 的概率增加到 X%，请设置有 (4X-100)/3 % 的几率返回 frue。
+            <para/>
+            <br/>要在加载物品时从物品中删除前缀，请在 pre 是要删除的前缀时返回 false。
+            <br/>使用 AllowPrefix 来防止随机获取某个前缀。
+            </summary>
+            <param name="item"></param>
+            <param name="pre">应用于物品的前缀，或随机前缀模式。 -1 是指物品在箱子中自然生成、制作、从 NPC 处购买、从摸彩袋中开出（不包括礼物）或从敌怪处掉落（如果它是用 prefixGiven: -1 生成的）。 -2 指物品在哥布林工匠处重铸。 -3 用于确定物品是否可以放置在哥布林工匠重铸槽中。</param>
+            <param name="rand">用于随机选择的随机数生成器类</param>
+            <returns></returns>
         </member>
         <member name="M:Terraria.ModLoader.GlobalItem.AllowPrefix(Terraria.Item,System.Int32)">
             <summary>
-            Force a re-roll of a prefix by returning false.
+            通过返回 false 强制重新获取随机前缀。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.GlobalItem.CanUseItem(Terraria.Item,Terraria.Player)">
             <summary>
-            Returns whether or not any item can be used. Returns true by default. The inability to use a specific item overrides this, so use this to stop an item from being used.
+            返回是否可以使用任何物品。 默认情况下返回 true。 对于特定无法使用的物品，此重写方法无法强制使其可用，因此应该用它来阻止物品的使用。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.GlobalItem.CanAutoReuseItem(Terraria.Item,Terraria.Player)">
             <summary>
-            Allows you to modify the autoswing (auto-reuse) behavior of any item without having to mess with Item.autoReuse.
-            <br>Useful to create effects like the Feral Claws which makes melee weapons and whips auto-reusable.</br>
-            <br>Return true to enable autoswing (if not already enabled through autoReuse), return false to prevent autoswing. Returns null by default, which applies vanilla behavior.</br>
+            允许您修改任何物品的自动挥舞（自动重复使用）行为，而不必弄乱 Item.autoReuse。
+            <br>有助于创建像猛爪手套这样的效果，它可以使近战武器和鞭子自动挥舞。</br>
+            <br>返回 true 以启用自动挥舞（如果尚未通过 autoReuse 启用），返回 false 以防止自动挥舞。 默认情况下返回 null，这会应用原版行为。</br>
+            <br/>有关自动挥舞，请参阅 https://terraria.wiki.gg/zh/wiki/Autoswing
             </summary>
-            <param name="item"> The item. </param>
-            <param name="player"> The player. </param>
+            <param name="item"> 物品实例。 </param>
+            <param name="player"> 玩家实例。 </param>
         </member>
         <member name="M:Terraria.ModLoader.GlobalItem.UseStyle(Terraria.Item,Terraria.Player,Microsoft.Xna.Framework.Rectangle)">
             <summary>
-            Allows you to modify the location and rotation of any item in its use animation.
+            允许您修改此物品在其使用动画中的位置和旋转。
             </summary>
-            <param name="item"> The item. </param>
-            <param name="player"> The player. </param>
-            <param name="heldItemFrame"> The source rectangle for the held item's texture. </param>
+            <param name="item"> 物品实例。 </param>
+            <param name="player"> 玩家实例。 </param>
+            <param name="heldItemFrame"> 持有物品贴图的源矩形。 </param>
         </member>
         <member name="M:Terraria.ModLoader.GlobalItem.HoldStyle(Terraria.Item,Terraria.Player,Microsoft.Xna.Framework.Rectangle)">
             <summary>
-            Allows you to modify the location and rotation of the item the player is currently holding.
+            允许您在玩家持有该物品时修改该物品的位置和旋转。
             </summary>
-            <param name="item"> The item. </param>
-            <param name="player"> The player. </param>
-            <param name="heldItemFrame"> The source rectangle for the held item's texture. </param>
+            <param name="item"> 物品实例。 </param>
+            <param name="player"> 玩家实例。 </param>
+            <param name="heldItemFrame"> 持有物品贴图的源矩形。 </param>
         </member>
         <member name="M:Terraria.ModLoader.GlobalItem.HoldItem(Terraria.Item,Terraria.Player)">
             <summary>
-            Allows you to make things happen when the player is holding an item (for example, torches make light and water candles increase spawn rate).
+            允许您在玩家持有该物品时让事情发生（例如，火把生成光照和水蜡烛增加刷怪速度）。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.GlobalItem.UseTimeMultiplier(Terraria.Item,Terraria.Player)">
             <summary>
-            Allows you to change the effective useTime of an item.
-            <br/> Note that this hook may cause items' actions to run less or more times than they should per a single use.
+            允许您更改物品的有效使用时间(useTime)。
+            <br/>请注意，这个钩子可能会导致物品的实际使用次数少于或多于它们在每次使用时应运行的次数。
             </summary>
-            <returns> The multiplier on the usage time. 1f by default. Values greater than 1 increase the item use's length. </returns>
+            <returns> 使用时间的乘数。 默认为 1f。 大于 1 的值会增加物品的使用时间长度。 </returns>
         </member>
         <member name="M:Terraria.ModLoader.GlobalItem.UseAnimationMultiplier(Terraria.Item,Terraria.Player)">
             <summary>
-            Allows you to change the effective useAnimation of an item.
-            <br/> Note that this hook may cause items' actions to run less or more times than they should per a single use.
+            允许您更改物品的有效 useAnimation。
+            <br/>请注意，这个钩子可能会导致物品的实际使用次数次数少于或多于它们在每次使用时应运行的次数。
             </summary>
-            <returns>The multiplier on the animation time. 1f by default. Values greater than 1 increase the item animation's length. </returns>
+            <returns>动画时间的乘数。 默认为 1f。 大于 1 的值会增加物品动画时间的长度。 </returns>
         </member>
         <member name="M:Terraria.ModLoader.GlobalItem.UseSpeedMultiplier(Terraria.Item,Terraria.Player)">
             <summary>
-            Allows you to safely change both useTime and useAnimation while keeping the values relative to each other.
-            <br/> Useful for status effects.
+            允许您安全地更改 useTime 和 useAnimation，同时保持值彼此相关。
+             <br/>对状态效果有用。
             </summary>
-            <returns> The multiplier on the use speed. 1f by default. Values greater than 1 increase the overall item speed. </returns>
+            <returns> 使用速度的乘数。 默认为 1f。 大于 1 的值会增加物品的整体使用速度。 </returns>
         </member>
         <member name="M:Terraria.ModLoader.GlobalItem.GetHealLife(Terraria.Item,Terraria.Player,System.Boolean,System.Int32@)">
             <summary>
-            Allows you to temporarily modify the amount of life a life healing item will heal for, based on player buffs, accessories, etc. This is only called for items with a healLife value.
+            允许您根据玩家的增益、配饰等暂时修改生命治疗物品将治疗的生命量。这仅适用于具有 healLife 值的物品。
             </summary>
-            <param name="item">The item being used.</param>
-            <param name="player">The player using the item.</param>
-            <param name="quickHeal">Whether the item is being used through quick heal or not.</param>
-            <param name="healValue">The amount of life being healed.</param>
+            <param name="item">物品实例</param>
+            <param name="player">正在使用物品的玩家</param>
+            <param name="quickHeal">该物品是否正在通过快速治疗使用</param>
+            <param name="healValue">恢复的血量</param>
         </member>
         <member name="M:Terraria.ModLoader.GlobalItem.GetHealMana(Terraria.Item,Terraria.Player,System.Boolean,System.Int32@)">
             <summary>
-            Allows you to temporarily modify the amount of mana a mana healing item will heal for, based on player buffs, accessories, etc. This is only called for items with a healMana value.
+            允许您根据玩家的增益、配饰等暂时修改魔力治疗物品治疗的魔力值。这仅适用于具有 healMana 值的物品。
             </summary>
-            <param name="item">The item being used.</param>
-            <param name="player">The player using the item.</param>
-            <param name="quickHeal">Whether the item is being used through quick heal or not.</param>
-            <param name="healValue">The amount of mana being healed.</param>
+            <param name="item">物品实例</param>
+            <param name="player">正在使用物品的玩家</param>
+            <param name="quickHeal">该物品是否正在通过快速治疗使用。</param>
+            <param name="healValue">恢复的魔力值</param>
         </member>
         <member name="M:Terraria.ModLoader.GlobalItem.ModifyManaCost(Terraria.Item,Terraria.Player,System.Single@,System.Single@)">
             <summary>
-            Allows you to temporarily modify the amount of mana an item will consume on use, based on player buffs, accessories, etc. This is only called for items with a mana value.
+            允许您根据玩家的增益、配饰等暂时修改物品在使用时消耗的魔力值。这仅适用于具有魔力值的物品。
             </summary>
-            <param name="item">The item being used.</param>
-            <param name="player">The player using the item.</param>
-            <param name="reduce">Used for decreasingly stacking buffs (most common). Only ever use -= on this field.</param>
-            <param name="mult">Use to directly multiply the item's effective mana cost. Good for debuffs, or things which should stack separately (eg meteor armor set bonus).</param>
+            <param name="item">正在使用的物品。</param>
+            <param name="player">正在使用物品的玩家</param>
+            <param name="reduce">用于递减堆叠增益（最常见）。 仅在此字段上使用 -=。</param>
+            <param name="mult">用于直接乘以物品的有效魔力消耗。 适合减益效果，或应该单独堆叠的东西（例如流星盔甲套装奖励）。</param>
         </member>
         <member name="M:Terraria.ModLoader.GlobalItem.OnMissingMana(Terraria.Item,Terraria.Player,System.Int32)">
             <summary>
-            Allows you to make stuff happen when a player doesn't have enough mana for an item they are trying to use.
-            If the player has high enough mana after this hook runs, mana consumption will happen normally.
-            Only runs once per item use.
+            当玩家没有足够的魔力来使用他们尝试使用的物品时，您可以让事情发生。
+            如果这个钩子运行后玩家有足够高的魔力值，魔力值消耗将正常发生。
+            每次使用物品只运行一次。
             </summary>
-            <param name="item">The item being used.</param>
-            <param name="player">The player using the item.</param>
-            <param name="neededMana">The mana needed to use the item.</param>
+            <param name="item">正在使用的物品。</param>
+            <param name="player">正在使用物品的玩家</param>
+            <param name="neededMana">使用该物品所需的魔力。</param>
         </member>
         <member name="M:Terraria.ModLoader.GlobalItem.OnConsumeMana(Terraria.Item,Terraria.Player,System.Int32)">
             <summary>
-            Allows you to make stuff happen when a player consumes mana on use of an item.
+            允许您在玩家使用物品消耗魔力时让事情发生。
             </summary>
-            <param name="item">The item being used.</param>
-            <param name="player">The player using the item.</param>
-            <param name="manaConsumed">The mana consumed from the player.</param>
+            <param name="item">正在使用的物品。</param>
+            <param name="player">正在使用物品的玩家</param>
+            <param name="manaConsumed">玩家消耗的魔力值。</param>
         </member>
         <member name="M:Terraria.ModLoader.GlobalItem.ModifyWeaponDamage(Terraria.Item,Terraria.Player,Terraria.ModLoader.StatModifier@)">
             <summary>
-            Allows you to dynamically modify a weapon's damage based on player and item conditions.
-            Can be utilized to modify damage beyond the tools that DamageClass has to offer.
+            允许您根据玩家和物品条件动态修改武器的伤害。
+            可用于修改超出 DamageClass 必须提供的工具的伤害。(Can be utilized to modify damage beyond the tools that DamageClass has to offer.)
             </summary>
-            <param name="item">The item being used.</param>
-            <param name="player">The player using the item.</param>
-            <param name="damage">The StatModifier object representing the totality of the various modifiers to be applied to the item's base damage.</param>
+            <param name="item">正在使用的物品。</param>
+            <param name="player">正在使用物品的玩家</param>
+            <param name="damage">StatModifier 对象表示应用于物品基础伤害的各种前缀的总和。</param>
         </member>
         <member name="M:Terraria.ModLoader.GlobalItem.ModifyResearchSorting(Terraria.Item,Terraria.ID.ContentSamples.CreativeHelper.ItemGroup@)">
             <summary>
-            Allows you to set an item's sorting group in Journey Mode's duplication menu. This is useful for setting custom item types that group well together, or whenever the default vanilla sorting doesn't sort the way you want it.
+            允许您在旅行模式的复制菜单中设置物品的排序组。 这对于设置很好地组合在一起的自定义物品类型很有用，或者当默认的原版排序没有按照您想要的方式排序时。
             </summary>
-            <param name="item">The item being used</param>
-            <param name="itemGroup">The item group this item is being assigned to</param>
+            <param name="item">物品实例</param>
+            <param name="itemGroup">这个物品被分配到的物品组</param>
         </member>
         <member name="M:Terraria.ModLoader.GlobalItem.CanConsumeBait(Terraria.Player,Terraria.Item)">
             <summary>
@@ -5887,7 +5888,7 @@
         </member>
         <member name="M:Terraria.ModLoader.GlobalItem.ModifyTooltips(Terraria.Item,System.Collections.Generic.List{Terraria.ModLoader.TooltipLine})">
             <summary>
-            Allows you to modify all the tooltips that display for the given item. See here for information about TooltipLine.
+            允许您修改为此物品显示的所有工具提示。 有关 TooltipLine 的信息，请参见此处。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.GlobalItem.SaveData(Terraria.Item,Terraria.ModLoader.IO.TagCompound)">
@@ -7362,22 +7363,22 @@
         </member>
         <member name="M:Terraria.ModLoader.ItemLoader.GetHealLife(Terraria.Item,Terraria.Player,System.Boolean,System.Int32@)">
             <summary>
-            Calls ModItem.GetHealLife, then all GlobalItem.GetHealLife hooks.
+            调用 ModItem.GetHealLife，然后调用所有 GlobalItem.GetHealLife 钩子。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ItemLoader.GetHealMana(Terraria.Item,Terraria.Player,System.Boolean,System.Int32@)">
             <summary>
-            Calls ModItem.GetHealMana, then all GlobalItem.GetHealMana hooks.
+            调用 ModItem.GetHealMana，然后调用所有 GlobalItem.GetHealMana 钩子。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ItemLoader.ModifyManaCost(Terraria.Item,Terraria.Player,System.Single@,System.Single@)">
             <summary>
-            Calls ModItem.ModifyManaCost, then all GlobalItem.ModifyManaCost hooks.
+            调用 ModItem.ModifyManaCost，然后调用所有 GlobalItem.ModifyManaCost 钩子。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ItemLoader.OnMissingMana(Terraria.Item,Terraria.Player,System.Int32)">
             <summary>
-            Calls ModItem.OnMissingMana, then all GlobalItem.OnMissingMana hooks.
+            调用 ModItem.OnMissingMana，然后调用所有 GlobalItem.OnMissingMana 钩子。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ItemLoader.OnConsumeMana(Terraria.Item,Terraria.Player,System.Int32)">
@@ -7393,7 +7394,7 @@
         </member>
         <member name="M:Terraria.ModLoader.ItemLoader.ModifyWeaponDamage(Terraria.Item,Terraria.Player,Terraria.ModLoader.StatModifier@)">
             <summary>
-            Calls ModItem.HookModifyWeaponDamage, then all GlobalItem.HookModifyWeaponDamage hooks.
+            调用 ModItem.HookModifyWeaponDamage，然后调用所有 GlobalItem.HookModifyWeaponDamage 钩子。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ItemLoader.ModifyWeaponKnockback(Terraria.Item,Terraria.Player,Terraria.ModLoader.StatModifier@)">
@@ -8503,102 +8504,105 @@
         </member>
         <member name="T:Terraria.ModLoader.ModContent">
             <summary>
-            Manages content added by mods.
-            Liasons between mod content and Terraria's arrays and oversees the Loader classes.
+            管理模组添加的内容。
+            联系模组内容和泰拉瑞亚原版数组之间，并监督各种 Loader 类。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModContent.GetInstance``1">
-            <summary> Returns the base instance of the provided content type. </summary>
+            <summary> 返回所提供内容类型的基本实例。 </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModContent.GetContent``1">
-            <summary> Returns all base content instances that derive from the provided content type across all currently loaded mods. </summary>
+            <summary> 返回从所有当前加载的模组中提供的内容类型派生的所有基础内容实例。 </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModContent.Find``1(System.String)">
-            <summary> Attempts to find the content instance with the specified full name. Caching the result is recommended.<para/>This will throw exceptions on failure. </summary>
+            <summary> 尝试查找具有指定全名的内容实例。 推荐将返回结果缓存。<para/>这将在失败时抛出异常。 </summary>
             <exception cref="T:System.Collections.Generic.KeyNotFoundException"/>
         </member>
         <member name="M:Terraria.ModLoader.ModContent.Find``1(System.String,System.String)">
-            <summary> Attempts to find the content instance with the specified name and mod name. Caching the result is recommended.<para/>This will throw exceptions on failure. </summary>
+            <summary> 尝试查找具有指定全名的内容实例。 推荐将返回结果缓存。<para/>这将在失败时抛出异常。 </summary>
             <exception cref="T:System.Collections.Generic.KeyNotFoundException"/>
         </member>
         <member name="M:Terraria.ModLoader.ModContent.TryFind``1(System.String,``0@)">
-            <summary> Safely attempts to find the content instance with the specified full name. Caching the result is recommended. </summary>
-            <returns> Whether or not the requested instance has been found. </returns>
+            <summary> 安全地尝试查找具有指定全名的内容实例。 建议缓存结果。 </summary>
+            <returns> 请求的实例是否被找到。 </returns>
         </member>
         <member name="M:Terraria.ModLoader.ModContent.TryFind``1(System.String,System.String,``0@)">
-            <summary> Safely attempts to find the content instance with the specified name and mod name. Caching the result is recommended. </summary>
-            <returns> Whether or not the requested instance has been found. </returns>
+            <summary> 安全地尝试查找具有指定全名的内容实例。 建议缓存结果。 </summary>
+            <returns> 请求的实例是否被找到。 </returns>
         </member>
         <member name="M:Terraria.ModLoader.ModContent.GetFileBytes(System.String)">
             <summary>
-            Gets the byte representation of the file with the specified name. The name is in the format of "ModFolder/OtherFolders/FileNameWithExtension". Throws an ArgumentException if the file does not exist.
+            获取具有指定名称的文件的字节表示形式。 名称格式为 “模组文件夹/其他文件夹/带扩展名的文件名”。 如果文件不存在，则抛出 ArgumentException。
             </summary>
             <exception cref="T:Terraria.ModLoader.Exceptions.MissingResourceException">Missing mod: " + name</exception>
         </member>
         <member name="M:Terraria.ModLoader.ModContent.FileExists(System.String)">
             <summary>
-            Returns whether or not a file with the specified name exists.
+            返回具有指定名称的文件是否存在。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModContent.Request``1(System.String,ReLogic.Content.AssetRequestMode)">
             <summary>
-            Gets the asset with the specified name. Throws an Exception if the asset does not exist.
+            获取指定名称的资源。 如果资源不存在，则抛出异常。
             </summary>
-            <param name="name">The path to the asset without extension, including the mod name (or Terraria) for vanilla assets. Eg "ModName/Folder/FileNameWithoutExtension"</param>
-            <param name="mode">The desired timing for when the asset actually loads. Use ImmediateLoad if you need correct dimensions immediately, such as with UI initialization</param>
+            <param name="name">没有扩展名的资源路径，包括资源的模组名称（原版的模组名为“Terraria”）。 例如“模组名/文件夹/不带扩展名的文件名”</param>
+            <param name="mode">资源实际加载时的期望时间。 如果您立即需要正确的资源，请使用 ImmediateLoad，例如 UI 初始化</param>
         </member>
         <member name="M:Terraria.ModLoader.ModContent.HasAsset(System.String)">
             <summary>
-            Returns whether or not a asset with the specified name exists.
-            Includes the mod name prefix like Request
+            返回是否存在具有指定名称的资源。
+            跟Request一样，路径包括模组名称前缀。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModContent.GetModNPC(System.Int32)">
             <summary>
-            Gets the ModNPC instance corresponding to the specified type.
+            获取指定类型对应的ModNPC实例。
             </summary>
-            <param name="type">The type of the npc</param>
-            <returns>The ModNPC instance in the npcs array, null if not found.</returns>
+            <param name="type">NPC类型(ID)</param>
+            <returns>这个 NPC 在 npcs 数组中的 ModNPC 实例，如果找不到则为 null。</returns>
         </member>
         <member name="M:Terraria.ModLoader.ModContent.GetModBossHeadSlot(System.String)">
             <summary>
-            Gets the index of the boss head texture corresponding to the given texture path.
+            获取给定贴图路径对应的 Boss 头部图标贴图的索引。
             </summary>
             <param name="texture"></param>
             <returns></returns>
         </member>
         <member name="M:Terraria.ModLoader.ModContent.GetModHeadSlot(System.String)">
             <summary>
-            Gets the index of the head texture corresponding to the given texture path.
+            获取给定贴图路径对应的头部纹理索引。
             </summary>
-            <param name="texture">Relative texture path</param>
-            <returns>The index of the texture in the heads array, -1 if not found.</returns>
+            <param name="texture">相对贴图路径</param>
+            <returns>heads 数组中贴图的索引，如果找不到则为 -1。</returns>
         </member>
         <member name="M:Terraria.ModLoader.ModContent.GetModItem(System.Int32)">
             <summary>
-            Gets the ModItem instance corresponding to the specified type. Returns null if no modded item has the given type.
+            获取指定类型对应的 ModItem 实例。 如果没有模组物品与给定类型对应，则返回 null。
             </summary>
+            <param name="type">物品类型(ID)</param>
         </member>
         <member name="M:Terraria.ModLoader.ModContent.GetModDust(System.Int32)">
             <summary>
-            Gets the ModDust instance with the given type. Returns null if no ModDust with the given type exists.
+            获取指定类型对应的 ModDust 实例。 如果不存在给定类型的 ModDust，则返回 null。
             </summary>
+            <param name="type">粒子类型(ID)</param>
         </member>
         <member name="M:Terraria.ModLoader.ModContent.GetModProjectile(System.Int32)">
             <summary>
-            Gets the ModProjectile instance corresponding to the specified type.
+            获取指定类型对应的 ModProjectile 实例。
             </summary>
-            <param name="type">The type of the projectile</param>
-            <returns>The ModProjectile instance in the projectiles array, null if not found.</returns>
+            <param name="type">射弹类型(ID)</param>
+            <returns>射弹数组中的 ModProjectile 实例，如果找不到则为 null。</returns>
         </member>
         <member name="M:Terraria.ModLoader.ModContent.GetModBuff(System.Int32)">
             <summary>
-            Gets the ModBuff instance with the given type. If no ModBuff with the given type exists, returns null.
+            获取指定类型对应的 ModBuff 实例。 如果不存在给定类型的 ModBuff，则返回 null。
             </summary>
+            <param name="type">Buff类型(ID)</param>
         </member>
         <member name="M:Terraria.ModLoader.ModContent.GetEquipTexture(Terraria.ModLoader.EquipType,System.Int32)">
             <summary>
-            Gets the equipment texture for the specified equipment type and ID.
+            获取指定装备类型和ID的装备贴图。
             </summary>
             <param name="type"></param>
             <param name="slot"></param>
@@ -8606,401 +8610,403 @@
         </member>
         <member name="M:Terraria.ModLoader.ModContent.GetModMount(System.Int32)">
             <summary>
-            Gets the ModMount instance corresponding to the given type. Returns null if no ModMount has the given type.
+            获取与给定类型对应的 ModMount 实例。 如果没有 ModMount 具有给定类型，则返回 null。
             </summary>
-            <param name="type">The type of the mount.</param>
-            <returns>Null if not found, otherwise the ModMount associated with the mount.</returns>
+            <param name="type">坐骑类型(ID)</param>
+            <returns>如果找不到则为 Null，否则返回与坐骑关联的 ModMount。</returns>
         </member>
         <member name="M:Terraria.ModLoader.ModContent.GetModTile(System.Int32)">
             <summary>
-            Gets the ModTile instance with the given type. If no ModTile with the given type exists, returns null.
+            获取指定类型对应的 ModTile 实例。 如果不存在具有给定类型的 ModTile，则返回 null。
             </summary>
-            <param name="type">The type of the ModTile</param>
-            <returns>The ModTile instance in the tiles array, null if not found.</returns>
+            <param name="type">ModTile类型(ID)</param>
+            <returns>tiles 数组中的 ModTile 实例，如果找不到则为 null。</returns>
         </member>
         <member name="M:Terraria.ModLoader.ModContent.GetModWall(System.Int32)">
             <summary>
-            Gets the ModWall instance with the given type. If no ModWall with the given type exists, returns null.
+            获取给定类型对应的 ModWall 实例。 如果不存在具有给定类型的 ModWall，则返回 null。
             </summary>
+            <param name="type">墙类型(ID)</param>
         </member>
         <member name="M:Terraria.ModLoader.ModContent.GetModWaterStyle(System.Int32)">
             <summary>
-            Returns the ModWaterStyle with the given ID.
+            返回给定 ID 的 ModWaterStyle。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModContent.GetModWaterfallStyle(System.Int32)">
             <summary>
-            Returns the ModWaterfallStyle with the given ID.
+            返回给定 ID 的 ModWaterfallStyle。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModContent.GetModBackgroundSlot(System.String)">
             <summary>
-            Returns the slot/ID of the background texture with the given name.
+            返回具有给定名称的背景贴图的插槽/ID。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModContent.GetModSurfaceBackgroundStyle(System.Int32)">
             <summary>
-            Returns the ModSurfaceBackgroundStyle object with the given ID.
+            返回具有给定 ID 的 ModSurfaceBackgroundStyle 对象。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModContent.GetModUndergroundBackgroundStyle(System.Int32)">
             <summary>
-            Returns the ModUndergroundBackgroundStyle object with the given ID.
+            返回具有给定 ID 的 ModUndergroundBackgroundStyle 对象。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModContent.GoreType``1">
             <summary>
-            Get the id (type) of a ModGore by class. Assumes one instance per class.
+            按类获取 ModGore 的 ID（类型）。 假设每个类一个实例。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModContent.ItemType``1">
             <summary>
-            Get the id (type) of a ModItem by class. Assumes one instance per class.
+            按类别获取 ModItem 的 ID（类型）。 假设每个类一个实例。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModContent.PrefixType``1">
             <summary>
-            Get the id (type) of a ModPrefix by class. Assumes one instance per class.
+            按类获取 ModPrefix 的 ID（类型）。 假设每个类一个实例。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModContent.RarityType``1">
             <summary>
-            Get the id (type) of a ModRarity by class. Assumes one instance per class.
+            按类别获取 ModRarity 的 ID（类型）。 假设每个类一个实例。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModContent.DustType``1">
             <summary>
-            Get the id (type) of a ModDust by class. Assumes one instance per class.
+            按类别获取 ModDust 的 ID（类型）。 假设每个类一个实例。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModContent.TileType``1">
             <summary>
-            Get the id (type) of a ModTile by class. Assumes one instance per class.
+            按类别获取 ModTile 的 ID（类型）。 假设每个类一个实例。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModContent.PylonType``1">
             <summary>
-            Get the id (type) of a ModPylon by class. Assumes one instance per class.
-            If nothing is found, returns 0, or the "Forest Pylon" type.
+            按类获取 ModPylon 的 ID（类型）。 假设每个类一个实例。
+            如果未找到任何内容，则返回 0，或“Forest Pylon”类型。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModContent.TileEntityType``1">
             <summary>
-            Get the id (type) of a ModTileEntity by class. Assumes one instance per class.
+            按类获取 ModTileEntity 的 ID（类型）。 假设每个类一个实例。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModContent.WallType``1">
             <summary>
-            Get the id (type) of a ModWall by class. Assumes one instance per class.
+            按类获取 ModWall 的 ID（类型）。 假设每个类一个实例。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModContent.ProjectileType``1">
             <summary>
-            Get the id (type) of a ModProjectile by class. Assumes one instance per class.
+            按类获取 ModProjectile 的 ID（类型）。 假设每个类一个实例。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModContent.NPCType``1">
             <summary>
-            Get the id (type) of a ModNPC by class. Assumes one instance per class.
+            按类获取 ModNPC 的 ID（类型）。 假设每个类一个实例。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModContent.BuffType``1">
             <summary>
-            Get the id (type) of a ModBuff by class. Assumes one instance per class.
+            按类获取 ModBuff 的 ID（类型）。 假设每个类一个实例。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModContent.MountType``1">
             <summary>
-            Get the id (type) of a ModMount by class. Assumes one instance per class.
+            按类获取 ModMount 的 ID（类型）。 假设每个类一个实例。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModContent.CleanupModReferences">
             <summary>
-            Several arrays and other fields hold references to various classes from mods, we need to clean them up to give properly coded mods a chance to be completely free of references
-            so that they can be collected by the garbage collection. For most things eventually they will be replaced during gameplay, but we want the old instance completely gone quickly.
+            几个数组和其他字段包含对 Mod 中各种类的引用，我们需要清理它们以便为正确编码的 Mod 提供完全没有引用的机会，以便它们可以被垃圾收集器收集。
+            对于大多数东西，它们最终会在游戏过程中被替换，但我们希望旧实例能尽快完全消失。
             </summary>
         </member>
         <member name="T:Terraria.ModLoader.ModDust">
             <summary>
-            This class represents a type of dust that is added by a mod. Only one instance of this class will ever exist for each type of dust you add.<br/>
-            The <see href="https://github.com/tModLoader/tModLoader/wiki/Basic-Dust">Basic Dust Guide</see> teaches the basics of making modded dust.
+            此类代表一种由模组添加的粒子。 对于您添加的每种类型的粒子，此类只会存在一个实例。<br/>
+            这个<see href="https://github.com/tModLoader/tModLoader/wiki/Basic-Dust">基础粒子教程</see>教授了制作模组粒子的基础知识。
             </summary>
         </member>
         <member name="P:Terraria.ModLoader.ModDust.UpdateType">
-            <summary> Allows you to choose a type of dust for this type of dust to copy the behavior of. Defaults to -1, which means that no behavior is copied. </summary>
+            <summary> 允许您为此粒子选择一种粒子以复制其行为。 默认为 -1，表示不复制任何行为。 </summary>
         </member>
         <member name="P:Terraria.ModLoader.ModDust.Texture2D">
-            <summary> The sprite sheet that this type of dust uses. Normally a sprite sheet will consist of a vertical alignment of three 10 x 10 pixel squares, each one containing a possible look for the dust. </summary>
+            <summary> 此类灰尘使用的贴图表。 通常情况下，贴图表将由三个 10 x 10 像素正方形的垂直排列组成，每个正方形都包含可能的粒子外观。 </summary>
         </member>
         <member name="P:Terraria.ModLoader.ModDust.Type">
-            <summary> The ID of this type of dust. </summary>
+            <summary> 粒子的ID。 </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModDust.SetStaticDefaults">
             <summary>
-            Allows you to modify the properties after initial loading has completed.
-            This is where you would update ModDust's UpdateType property and modify the Terraria.GameContent.ChildSafety.SafeDust array.
+            允许您在初始加载完成后修改属性。
+            您可以在此处更新 ModDust 的 UpdateType 属性并修改 Terraria.GameContent.ChildSafety.SafeDust 数组。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModDust.OnSpawn(Terraria.Dust)">
             <summary>
-            Allows you to modify a dust's fields when it is created.
+            允许您在创建粒子时修改它的字段。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModDust.Update(Terraria.Dust)">
             <summary>
-            Allows you to customize how you want this type of dust to behave. Return true to allow for vanilla dust updating to also take place; will return true by default. Normally you will want this to return false.
+            允许您自定义您希望此类粒子的行为方式。 返回 true 以允许原版粒子更新代码运行； 默认情况下将返回 true。 通常你会希望它返回 false。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModDust.MidUpdate(Terraria.Dust)">
             <summary>
-            Allows you to add behavior to this dust on top of the default dust behavior. Return true if you're applying your own behavior; return false to make the dust slow down by itself. Normally you will want this to return true.
+            允许您在默认粒子行为的基础上向该粒子添加行为。 如果您正在应用自己的行为，则返回 true； 返回 false 使粒子自行减速。 通常你会希望它返回 true。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModDust.GetAlpha(Terraria.Dust,Microsoft.Xna.Framework.Color)">
             <summary>
-            Allows you to override the color this dust will draw in. Return null to draw it in the normal light color; returns null by default. Note that the dust.noLight field makes the dust ignore lighting and draw in full brightness, and can be set in OnSpawn instead of having to return Color.White here.
+            允许您覆盖此粒子将绘制的颜色。返回 null 以正常的浅色绘制它； 默认返回 null。 请注意，dust.noLight 字段使粒子忽略照明并以全亮度绘制，并且可以在 OnSpawn 中设置，而不必在此处返回 Color.White。
             </summary>
         </member>
         <member name="T:Terraria.ModLoader.ModGore">
             <summary>
-            This class allows you to customize the behavior of a custom gore.
+            此类允许您自定义你的血污的行为。
             </summary>
         </member>
         <member name="P:Terraria.ModLoader.ModGore.UpdateType">
-            <summary> Allows you to copy the Update behavior of a different type of gore. This defaults to 0, which means no behavior is copied. </summary>
+            <summary> 允许您复制不同类型血污的更新行为。 这默认为 0，这意味着没有行为被复制。 </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModGore.OnSpawn(Terraria.Gore,Terraria.DataStructures.IEntitySource)">
             <summary>
-            Allows you to modify a gore's fields when it is created.
+            允许您在创建血污时修改它的字段。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModGore.Update(Terraria.Gore)">
             <summary>
-            Allows you to customize how you want this type of gore to behave. Return true to allow for vanilla gore updating to also take place; returns true by default.
+            允许您自定义您希望此类血污的行为方式。 返回 true 以允许原版血污更新也发生； 默认情况下返回 true。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModGore.GetAlpha(Terraria.Gore,Microsoft.Xna.Framework.Color)">
             <summary>
-            Allows you to override the color this gore will draw in. Return null to draw it in the normal light color; returns null by default.
+            允许您覆盖此血污将绘制的颜色。返回 null 以正常的浅色绘制它； 默认返回 null。
             </summary>
             <returns></returns>
         </member>
         <member name="T:Terraria.ModLoader.ModItem">
             <summary>
-            This class serves as a place for you to place all your properties and hooks for each item. Create instances of ModItem (preferably overriding this class) to pass as parameters to Mod.AddItem.<br/>
-            The <see href="https://github.com/tModLoader/tModLoader/wiki/Basic-Item">Basic Item Guide</see> teaches the basics of making a modded item.
+            此类可作为您为每个物品放置所有属性和钩子的地方。 创建 ModItem 的实例（最好覆盖此类）以作为参数传递给 Mod.AddItem。<br/>
+            <see href="https://github.com/tModLoader/tModLoader/wiki/Basic-Item">基本物品指南</see>教授制作模组物品的基础知识。
             </summary>
         </member>
         <member name="P:Terraria.ModLoader.ModItem.Item">
             <summary>
-            The item object that this ModItem controls.
+            此 ModItem 控制的物品对象。
             </summary>
         </member>
         <member name="P:Terraria.ModLoader.ModItem.Type">
             <summary>
-            Shorthand for Item.type;
+            Item.type 的简写。
             </summary>
         </member>
         <member name="P:Terraria.ModLoader.ModItem.DisplayName">
             <summary>
-            The translations for the display name of this item.
+            此物品的显示名称的翻译。
             </summary>
         </member>
         <member name="P:Terraria.ModLoader.ModItem.Tooltip">
             <summary>
-            The translations for the tooltip of this item.
+            该物品的工具提示的翻译。
             </summary>
         </member>
         <member name="P:Terraria.ModLoader.ModItem.Texture">
             <summary>
-            The file name of this type's texture file in the mod loader's file space.
+            该类型的贴图文件在 ModLoader 的文件空间中的文件名。
             </summary>
         </member>
         <member name="P:Terraria.ModLoader.ModItem.SacrificeTotal">
             <summary>
-            Easy get/set for an item's Sacrifice Total Count
+            用于轻松获取/设置物品的旅行模式研究所需数量
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModItem.SetDefaults">
             <summary>
-            This is where you set all your item's properties, such as width, damage, shootSpeed, defense, etc.
-            For those that are familiar with tAPI, this has the same function as .json files.
+            这是您设置所有物品属性的地方，例如宽度、伤害、射击速度、防御等。
+            对于那些熟悉 tAPI 的人来说，这与 .json 文件具有相同的功能。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModItem.OnSpawn(Terraria.DataStructures.IEntitySource)">
             <summary>
-            Gets called when your item spawns in world
+            当您的物品在世界中生成时被调用
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModItem.AutoDefaults">
             <summary>
-            Automatically sets certain defaults. Override this if you do not want the properties to be set for you.
+            自动设置某些默认值。 如果您不想为您设置这些属性，请覆盖它。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModItem.AutoStaticDefaults">
             <summary>
-            Automatically sets certain static defaults. Override this if you do not want the properties to be set for you.
+            自动设置某些静态默认值。 如果您不想为您设置这些属性，请覆盖它。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModItem.ChoosePrefix(Terraria.Utilities.UnifiedRandom)">
             <summary>
-            Allows you to manually choose what prefix an item will get.
+            允许您手动选择物品将获得的前缀。
             </summary>
-            <returns>The ID of the prefix to give the item, -1 to use default vanilla behavior</returns>
+            <returns>将给予物品的前缀 ID，返回 -1 以使用默认的原版行为</returns>
         </member>
         <member name="M:Terraria.ModLoader.ModItem.MeleePrefix">
             <summary>
-            Allows you to change whether or not a weapon receives melee prefixes. Return true if the item should receive melee prefixes and false if it should not.
-            Takes priority over WeaponPrefix, RangedPrefix, and MagicPrefix
+            允许您更改武器是否接收近战前缀。 如果物品应接收近战前缀则返回 true，否则返回 false。
+            优先于 WeaponPrefix、RangedPrefix 和 MagicPrefix
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModItem.WeaponPrefix">
             <summary>
-            Allows you to change whether or not a weapon only receives generic prefixes. Return true if the item should only receive generic prefixes and false if it should not.
-            Takes priority over RangedPrefix and MagicPrefix
-            Ignored if MeleePrefix returns true
+            允许您更改武器是否仅接收通用前缀。 如果该物品只应接收通用前缀，则返回 true，否则返回 false。
+            优先于 RangedPrefix 和 MagicPrefix
+            如果 MeleePrefix 返回 true 则忽略
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModItem.RangedPrefix">
             <summary>
-            Allows you to change whether or not a weapon receives ranged prefixes. Return true if the item should receive ranged prefixes and false if it should not.
-            Takes priority over MagicPrefix
+            允许您更改武器是否接收远程前缀。 如果物品应接收远程前缀则返回 true，否则返回 false。
+            优先于 MagicPrefix
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModItem.MagicPrefix">
             <summary>
-            Allows you to change whether or not a weapon receives magic prefixes. Return true if the item should receive magic prefixes and false if it should not.
+            允许您更改武器是否接收魔法前缀。 如果物品应该接收魔法前缀则返回 true，如果不应该则返回 false。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModItem.PrefixChance(System.Int32,Terraria.Utilities.UnifiedRandom)">
-             <summary>
-             To prevent putting the item in the tinkerer slot, return false when pre is -3.
-             To prevent rolling of a prefix on spawn, return false when pre is -1.
-             To force rolling of a prefix on spawn, return true when pre is -1.
-            
-             To reduce the probability of a prefix on spawn (pre == -1) to X%, return false 100-4X % of the time.
-             To increase the probability of a prefix on spawn (pre == -1) to X%, return true (4X-100)/3 % of the time.
-            
-             To delete a prefix from an item when the item is loaded, return false when pre is the prefix you want to delete.
-             Use AllowPrefix to prevent rolling of a certain prefix.
-             </summary>
-             <param name="pre">The prefix being applied to the item, or the roll mode. -1 is when the item is naturally generated in a chest, crafted, purchased from an NPC, looted from a grab bag (excluding presents), or dropped by a slain enemy (if it's spawned with prefixGiven: -1). -2 is when the item is rolled in the tinkerer. -3 determines if the item can be placed in the tinkerer slot.</param>
-             <param name="rand">The random number generator class to be used in random choices</param>
-             <returns></returns>
+            <summary>
+            要防止将物品放入哥布林工匠重铸槽中，请在 pre 为 -3 时返回 false。
+            <br/>要防止在生成时获取随机前缀，请在 pre 为 -1 时返回 false。
+            <br/>要在生成时强制获取随机前缀，请在 pre 为 -1 时返回 true。
+            <para/>
+            <br/>要将生成时获取前缀 (pre == -1) 的概率降低到 X%，请设置有 100-4X % 的几率返回 false。
+            <br/>要将生成时获取前缀 (pre == -1) 的概率增加到 X%，请设置有 (4X-100)/3 % 的几率返回 frue。
+            <para/>
+            <br/>要在加载物品时从物品中删除前缀，请在 pre 是要删除的前缀时返回 false。
+            <br/>使用 AllowPrefix 来防止随机获取某个前缀。
+            </summary>
+            <param name="pre">应用于物品的前缀，或随机前缀模式。 -1 是指物品在箱子中自然生成、制作、从 NPC 处购买、从摸彩袋中开出（不包括礼物）或从敌怪处掉落（如果它是用 prefixGiven: -1 生成的）。 -2 指物品在哥布林工匠处重铸。 -3 用于确定物品是否可以放置在哥布林工匠重铸槽中。</param>
+            <param name="rand">用于随机选择的随机数生成器类</param>
+            <returns></returns>
         </member>
         <member name="M:Terraria.ModLoader.ModItem.AllowPrefix(System.Int32)">
             <summary>
-            Force a re-roll of a prefix by returning false.
+            通过返回 false 强制重新获取随机前缀。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModItem.CanUseItem(Terraria.Player)">
             <summary>
-            Returns whether or not this item can be used. By default returns true.
+            返回是否可以使用此物品。 默认情况下返回 true。
             </summary>
-            <param name="player">The player using the item.</param>
+            <param name="player">使用物品的玩家。</param>
         </member>
         <member name="M:Terraria.ModLoader.ModItem.CanAutoReuseItem(Terraria.Player)">
             <summary>
-            Allows you to modify the autoswing (auto-reuse) behavior of this item without having to mess with Item.autoReuse.
-            <br>Useful to create effects like the Feral Claws which makes melee weapons and whips auto-reusable.</br>
-            <br>Return true to enable autoswing (if not already enabled through autoReuse), return false to prevent autoswing. Returns null by default, which applies vanilla behavior.</br>
+            允许您修改任何物品的自动挥舞（自动重复使用）行为，而不必弄乱 Item.autoReuse。
+            <br>有助于创建像猛爪手套这样的效果，它可以使近战武器和鞭子自动挥舞。</br>
+            <br>返回 true 以启用自动挥舞（如果尚未通过 autoReuse 启用），返回 false 以防止自动挥舞。 默认情况下返回 null，这会应用原版行为。</br>
+            <br/>有关自动挥舞，请参阅 https://terraria.wiki.gg/zh/wiki/Autoswing
             </summary>
-            <param name="player"> The player. </param>
+            <param name="player"> 玩家实例。 </param>
         </member>
         <member name="M:Terraria.ModLoader.ModItem.UseStyle(Terraria.Player,Microsoft.Xna.Framework.Rectangle)">
             <summary>
-            Allows you to modify the location and rotation of this item in its use animation.
+            允许您修改此物品在其使用动画中的位置和旋转。
             </summary>
-            <param name="player"> The player. </param>
-            <param name="heldItemFrame"> The source rectangle for the held item's texture. </param>
+            <param name="player"> 玩家实例。 </param>
+            <param name="heldItemFrame"> 持有物品贴图的源矩形。 </param>
         </member>
         <member name="M:Terraria.ModLoader.ModItem.HoldStyle(Terraria.Player,Microsoft.Xna.Framework.Rectangle)">
             <summary>
-            Allows you to modify the location and rotation of this item when the player is holding it.
+            允许您在玩家持有该物品时修改该物品的位置和旋转。
             </summary>
-            <param name="player"> The player. </param>
-            <param name="heldItemFrame"> The source rectangle for the held item's texture. </param>
+            <param name="player"> 玩家实例。 </param>
+            <param name="heldItemFrame"> 持有物品贴图的源矩形。 </param>
         </member>
         <member name="M:Terraria.ModLoader.ModItem.HoldItem(Terraria.Player)">
             <summary>
-            Allows you to make things happen when the player is holding this item (for example, torches make light and water candles increase spawn rate).
+            允许您在玩家持有该物品时让事情发生（例如，火把生成光照和水蜡烛增加刷怪速度）。
             </summary>
-            <param name="player">The player.</param>
+            <param name="player"> 玩家实例。 </param>
         </member>
         <member name="M:Terraria.ModLoader.ModItem.UseTimeMultiplier(Terraria.Player)">
             <summary>
-            Allows you to change the effective useTime of an item.
-            <br/> Note that this hook may cause items' actions to run less or more times than they should per a single use.
+            允许您更改物品的有效使用时间(useTime)。
+            <br/>请注意，这个钩子可能会导致物品的实际使用次数少于或多于它们在每次使用时应运行的次数。
             </summary>
-            <returns> The multiplier on the usage time. 1f by default. Values greater than 1 increase the item use's length. </returns>
+            <returns> 使用时间的乘数。 默认为 1f。 大于 1 的值会增加物品的使用时间长度。 </returns>
         </member>
         <member name="M:Terraria.ModLoader.ModItem.UseAnimationMultiplier(Terraria.Player)">
             <summary>
-            Allows you to change the effective useAnimation of an item.
-            <br/> Note that this hook may cause items' actions to run less or more times than they should per a single use.
+            允许您更改物品的有效 useAnimation。
+            <br/>请注意，这个钩子可能会导致物品的实际使用次数次数少于或多于它们在每次使用时应运行的次数。
             </summary>
-            <returns>The multiplier on the animation time. 1f by default. Values greater than 1 increase the item animation's length. </returns>
+            <returns>动画时间的乘数。 默认为 1f。 大于 1 的值会增加物品动画时间的长度。 </returns>
         </member>
         <member name="M:Terraria.ModLoader.ModItem.UseSpeedMultiplier(Terraria.Player)">
             <summary>
-            Allows you to safely change both useTime and useAnimation while keeping the values relative to each other.
-            <br/> Useful for status effects.
+            允许您安全地更改 useTime 和 useAnimation，同时保持值彼此相关。
+             <br/>对状态效果有用。
             </summary>
-            <returns> The multiplier on the use speed. 1f by default. Values greater than 1 increase the overall item speed. </returns>
+            <returns> 使用速度的乘数。 默认为 1f。 大于 1 的值会增加物品的整体使用速度。 </returns>
         </member>
         <member name="M:Terraria.ModLoader.ModItem.GetHealLife(Terraria.Player,System.Boolean,System.Int32@)">
             <summary>
-            Allows you to temporarily modify the amount of life a life healing item will heal for, based on player buffs, accessories, etc. This is only called for items with a healLife value.
+            允许您根据玩家的增益、配饰等暂时修改生命治疗物品将治疗的生命量。这仅适用于具有 healLife 值的物品。
             </summary>
-            <param name="player">The player using the item.</param>
-            <param name="quickHeal">Whether the item is being used through quick heal or not.</param>
-            <param name="healValue">The amount of life being healed.</param>
+            <param name="player">正在使用物品的玩家</param>
+            <param name="quickHeal">该物品是否正在通过快速治疗使用</param>
+            <param name="healValue">恢复的血量</param>
         </member>
         <member name="M:Terraria.ModLoader.ModItem.GetHealMana(Terraria.Player,System.Boolean,System.Int32@)">
             <summary>
-            Allows you to temporarily modify the amount of mana a mana healing item will heal for, based on player buffs, accessories, etc. This is only called for items with a healMana value.
+            允许您根据玩家的增益、配饰等暂时修改魔力治疗物品治疗的魔力值。这仅适用于具有 healMana 值的物品。
             </summary>
-            <param name="player">The player using the item.</param>
-            <param name="quickHeal">Whether the item is being used through quick heal or not.</param>
-            <param name="healValue">The amount of mana being healed.</param>
+            <param name="player">正在使用物品的玩家</param>
+            <param name="quickHeal">该物品是否正在通过快速治疗使用。</param>
+            <param name="healValue">恢复的魔力值</param>
         </member>
         <member name="M:Terraria.ModLoader.ModItem.ModifyManaCost(Terraria.Player,System.Single@,System.Single@)">
             <summary>
-            Allows you to temporarily modify the amount of mana this item will consume on use, based on player buffs, accessories, etc. This is only called for items with a mana value.
+            允许您根据玩家的增益、配饰等暂时修改物品在使用时消耗的魔力值。这仅适用于具有魔力值的物品。
             </summary>
-            <param name="player">The player using the item.</param>
-            <param name="reduce">Used for decreasingly stacking buffs (most common). Only ever use -= on this field.</param>
-            <param name="mult">Use to directly multiply the item's effective mana cost. Good for debuffs, or things which should stack separately (eg meteor armor set bonus).</param>
+            <param name="player">正在使用物品的玩家</param>
+            <param name="reduce">用于递减堆叠增益（最常见）。 仅在此字段上使用 -=。</param>
+            <param name="mult">用于直接乘以物品的有效魔力消耗。 适合减益效果，或应该单独堆叠的东西（例如流星盔甲套装奖励）。</param>
         </member>
         <member name="M:Terraria.ModLoader.ModItem.OnMissingMana(Terraria.Player,System.Int32)">
             <summary>
-            Allows you to make stuff happen when a player doesn't have enough mana for the item they are trying to use.
-            If the player has high enough mana after this hook runs, mana consumption will happen normally.
-            Only runs once per item use.
+            当玩家没有足够的魔力来使用他们尝试使用的物品时，您可以让事情发生。
+            如果这个钩子运行后玩家有足够高的魔力值，魔力值消耗将正常发生。
+            每次使用物品只运行一次。
             </summary>
-            <param name="player">The player using the item.</param>
-            <param name="neededMana">The mana needed to use the item.</param>
+            <param name="player">正在使用物品的玩家</param>
+            <param name="neededMana">使用该物品所需的魔力。</param>
         </member>
         <member name="M:Terraria.ModLoader.ModItem.OnConsumeMana(Terraria.Player,System.Int32)">
             <summary>
-            Allows you to make stuff happen when a player consumes mana on use of this item.
+            允许您在玩家使用物品消耗魔力时让事情发生。
             </summary>
-            <param name="player">The player using the item.</param>
-            <param name="manaConsumed">The mana consumed from the player.</param>
+            <param name="player">正在使用物品的玩家</param>
+            <param name="manaConsumed">玩家消耗的魔力值。</param>
         </member>
         <member name="M:Terraria.ModLoader.ModItem.ModifyWeaponDamage(Terraria.Player,Terraria.ModLoader.StatModifier@)">
             <summary>
-            Allows you to dynamically modify a weapon's damage based on player and item conditions.
-            Can be utilized to modify damage beyond the tools that DamageClass has to offer.
+            允许您根据玩家和物品条件动态修改武器的伤害。
+            可用于修改超出 DamageClass 必须提供的工具的伤害。(Can be utilized to modify damage beyond the tools that DamageClass has to offer.)
             </summary>
-            <param name="player">The player using the item.</param>
-            <param name="damage">The StatModifier object representing the totality of the various modifiers to be applied to the item's base damage.</param>
+            <param name="player">正在使用物品的玩家</param>
+            <param name="damage">StatModifier 对象表示应用于物品基础伤害的各种前缀的总和。</param>
         </member>
         <member name="M:Terraria.ModLoader.ModItem.ModifyResearchSorting(Terraria.ID.ContentSamples.CreativeHelper.ItemGroup@)">
             <summary>
-            Allows you to set an item's sorting group in Journey Mode's duplication menu. This is useful for setting custom item types that group well together, or whenever the default vanilla sorting doesn't sort the way you want it.
+            允许您在旅行模式的复制菜单中设置物品的排序组。 这对于设置很好地组合在一起的自定义物品类型很有用，或者当默认的原版排序没有按照您想要的方式排序时。
             </summary>
-            <param name="itemGroup">The item group this item is being assigned to</param>
+            <param name="itemGroup">这个物品被分配到的物品组</param>
         </member>
         <member name="M:Terraria.ModLoader.ModItem.CanConsumeBait(Terraria.Player)">
             <summary>
@@ -9732,77 +9738,77 @@
         </member>
         <member name="M:Terraria.ModLoader.ModItem.ModifyTooltips(System.Collections.Generic.List{Terraria.ModLoader.TooltipLine})">
             <summary>
-            Allows you to modify all the tooltips that display for this item. See here for information about TooltipLine.
+            允许您修改为此物品显示的所有工具提示。 有关 TooltipLine 的信息，请参见此处。
             </summary>
-            <param name="tooltips">The tooltips.</param>
+            <param name="tooltips">工具提示。</param>
         </member>
         <member name="T:Terraria.ModLoader.ModKeybind">
             <summary>
-            Represents a loaded input binding. It is suggested to access the keybind status only in ModPlayer.ProcessTriggers.
+            表示加载的输入键位。 建议仅在 ModPlayer.ProcessTriggers 中访问键位状态。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModKeybind.GetAssignedKeys(Terraria.GameInput.InputMode)">
             <summary>
-            Gets the currently assigned keybindings. Useful for prompts, tooltips, informing users.
+            获取当前分配的键位。 对于提示、工具提示、通知用户很有用。
             </summary>
-            <param name="mode"> The InputMode. Choose between InputMode.Keyboard and InputMode.XBoxGamepad </param>
+            <param name="mode"> 输入模式。 在 InputMode.Keyboard 和 InputMode.XBoxGamepad 之间选择 </param>
         </member>
         <member name="P:Terraria.ModLoader.ModKeybind.Current">
             <summary>
-            Returns true if this keybind is pressed currently. Useful for creating a behavior that relies on the keybind being held down.
+            如果当前按下此键位，则返回 true。 对于创建依赖于被按住的键位的行为很有用。
             </summary>
         </member>
         <member name="P:Terraria.ModLoader.ModKeybind.JustPressed">
             <summary>
-            Returns true if this keybind has just been pressed this update. This is a fire-once-per-press behavior.
+            如果此键位在此更新中刚刚被按下，则返回 true。 这是每次按下时触发一次的行为。
             </summary>
         </member>
         <member name="P:Terraria.ModLoader.ModKeybind.JustReleased">
             <summary>
-            Returns true if this keybind has just been released this update.
+            如果此键位在此更新中刚刚被松开，则返回 true。
             </summary>
         </member>
         <member name="P:Terraria.ModLoader.ModKeybind.Old">
             <summary>
-            Returns true if this keybind has been pressed during the previous update.
+            如果在上一次更新期间按下了此键位，则返回 true。
             </summary>
         </member>
         <member name="T:Terraria.ModLoader.ModLoader">
             <summary>
-            This serves as the central class which loads mods. It contains many static fields and methods related to mods and their contents.
+            这是加载模组的中心类。 它包含许多与模组及其内容有关的静态字段和方法。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModLoader.GetMod(System.String)">
-            <summary> Gets the instance of the Mod with the specified name. This will throw an exception if the mod cannot be found. </summary>
+            <summary> 获取具有指定名称的 Mod 的实例。 如果找不到相应模组，将抛出异常。 </summary>
             <exception cref="T:System.Collections.Generic.KeyNotFoundException"/>
         </member>
         <member name="M:Terraria.ModLoader.ModLoader.TryGetMod(System.String,Terraria.ModLoader.Mod@)">
-            <summary> Safely attempts to get the instance of the Mod with the specified name. </summary>
-            <returns> Whether or not the requested instance has been found. </returns>
+            <summary> 安全地尝试获取具有指定名称的 Mod 实例。 </summary>
+            <returns> 是否找到请求的实例。 </returns>
         </member>
         <member name="M:Terraria.ModLoader.ModLoader.HasMod(System.String)">
-            <summary> Safely checks whether or not a mod with the specified internal name is currently loaded. </summary>
-            <returns> Whether or not a mod with the provided internal name has been found. </returns>
+            <summary> 安全地检查当前是否加载了具有指定内部名称的模组。 </summary>
+            <returns> 是否找到具有提供的内部名称的模组。 </returns>
         </member>
         <member name="F:Terraria.ModLoader.ModLoader._enabledMods">
-            <summary>A cached list of enabled mods (not necessarily currently loaded or even installed), mirroring the enabled.json file.</summary>
+            <summary> 所有已启用模组的缓存列表（不一定当前已加载甚至已安装），也就是 enabled.json 文件的镜像。 </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModLoader.BuildGlobalHook``2(``1[]@,System.Collections.Generic.IList{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}})">
             <summary>
-            Allows type inference on T and F
+            允许对 T 和 F 进行类型推断 (Allows type inference on T and F)
             </summary>
         </member>
         <member name="T:Terraria.ModLoader.ModMapLayer">
             <summary>
-            This class is used to facilitate easily drawing icons and other things over the map. Pylons and spawn/bed icons are examples of vanilla map layers. Use <see cref="M:Terraria.ModLoader.ModSystem.PreDrawMapIconOverlay(System.Collections.Generic.IReadOnlyList{Terraria.Map.IMapLayer},Terraria.Map.MapOverlayDrawContext)"/> to selectively hide vanilla layers if needed.
+            此类用于方便地在地图上绘制图标和其他内容。 晶塔和出生点/床图标是原版小地图图层的示例。 如果需要，使用 <see cref="M:Terraria.ModLoader.ModSystem.PreDrawMapIconOverlay(System.Collections.Generic.IReadOnlyList{Terraria.Map.IMapLayer},Terraria.Map.MapOverlayDrawContext)"/> 有选择地隐藏原始层。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModMapLayer.Draw(Terraria.Map.MapOverlayDrawContext@,System.String@)">
             <summary>
-            This method is called when this MapLayer is to be drawn. Map layers are drawn after the map itself is drawn. Use <see cref="M:Terraria.Map.MapOverlayDrawContext.Draw(Microsoft.Xna.Framework.Graphics.Texture2D,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,Terraria.DataStructures.SpriteFrame,System.Single,System.Single,Terraria.UI.Alignment)"/> as described in ExampleMod and in vanilla examples for full compatibility and simplicity of code.
+            当要绘制该 MapLayer 时调用该方法。 小地图图层是在绘制地图本身之后绘制的。 使用 <see cref="M:Terraria.Map.MapOverlayDrawContext.Draw(Microsoft.Xna.Framework.Graphics.Texture2D,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,Terraria.DataStructures.SpriteFrame,System. Single,System.Single,Terraria.UI.Alignment)"/> 如 ExampleMod 和原版示例中所述，以实现代码的完全兼容性和简单性。
             </summary>
-            <param name="context">Contains the scaling and positional data of the map being drawn. You should use the MapOverlayDrawContext.Draw method for all drawing</param>
-            <param name="text">The mouse hover text. Assign a value typically if the user is hovering over something you draw</param>
+            <param name="context">包含正在绘制的地图的比例和位置数据。 您应该对所有绘图使用 MapOverlayDrawContext.Draw 方法</param>
+            <param name="text">鼠标光标悬停文本。 如果用户将鼠标光标悬停在您绘制的内容上，通常会分配一个字符串以在光标旁显示</param>
         </member>
         <member name="T:Terraria.ModLoader.ModMenu">
             <summary>
@@ -10136,8 +10142,8 @@
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.HitEffect(System.Int32,System.Double)">
             <summary>
-            允许你在这个 NPC 被击中时让事情发生，例如生成粒子或尸块。
-            <br/>这个钩子仅在客户端调用。通常，当 NPC 死亡时发生某些事情(例如物品生成)时，您可以使用 NPCLoot，但您可以使用 HitEffect 结合检查 <code>if (NPC.life &lt;= 0)</code> 来执行客户端死亡效果，例如生成粒子、尸块或发出音效。
+            允许你在这个 NPC 被击中时让事情发生，例如生成粒子或血污。
+            <br/>这个钩子仅在客户端调用。通常，当 NPC 死亡时发生某些事情(例如物品生成)时，您可以使用 NPCLoot，但您可以使用 HitEffect 结合检查 <code>if (NPC.life &lt;= 0)</code> 来执行客户端死亡效果，例如生成粒子、血污或发出音效。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.UpdateLifeRegen(System.Int32@)">
@@ -10172,7 +10178,7 @@
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.OnKill">
             <summary>
-            允许您在该 NPC 死亡时发生事件(例如，掉落物品和设置 ModSystem 字段)。此钩子在多人模式服务器端/单人游戏上运行。对于仅客户端效果(通常来说是视觉效果)，例如粒子、尸块和音效，请参阅 HitEffect
+            允许您在该 NPC 死亡时发生事件(例如，掉落物品和设置 ModSystem 字段)。此钩子在多人模式服务器端/单人游戏上运行。对于仅客户端效果(通常来说是视觉效果)，例如粒子、血污和音效，请参阅 HitEffect
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModNPC.CanFallThroughPlatforms">
@@ -10723,7 +10729,7 @@
         </member>
         <member name="T:Terraria.ModLoader.ModPlayer">
             <summary>
-            一个 ModPlayer 实例代表一个 Player 实例的扩展。 您可以将字段存储在 ModPlayer 类中，就像 Player 类滥用字段使用的方式一样，以跟踪 ModPlayer 实例所代表的玩家的特定于模组的信息。 它还包含用于将您的代码插入 Player 类的挂钩。
+            一个 ModPlayer 实例代表一个 Player 实例的扩展。 您可以将字段存储在 ModPlayer 类中，就像 Player 类滥用字段使用的方式一样，以跟踪 ModPlayer 实例所代表的玩家的特定于模组的信息。 它还包含用于将您的代码插入 Player 类的钩子。
             </summary>
         </member>
         <member name="P:Terraria.ModLoader.ModPlayer.Player">
@@ -10779,7 +10785,7 @@
         </member>
         <member name="M:Terraria.ModLoader.ModPlayer.clientClone(Terraria.ModLoader.ModPlayer)">
             <summary>
-            允许您将关于此玩家的信息复制到 clientClone 参数。 您应该复制您打算在服务器和客户端之间同步的信息。 此挂钩在 Player.clientClone 方法中调用。 有关详细信息，请参阅 SendClientChanges。
+            允许您将关于此玩家的信息复制到 clientClone 参数。 您应该复制您打算在服务器和客户端之间同步的信息。 这个钩子在 Player.clientClone 方法中调用。 有关详细信息，请参阅 SendClientChanges。
             </summary>
             <param name="clientClone"></param>
         </member>
@@ -10826,7 +10832,7 @@
         </member>
         <member name="M:Terraria.ModLoader.ModPlayer.ProcessTriggers(Terraria.GameInput.TriggersSet)">
             <summary>
-            使用它来检查您已注册的键绑定。虽然即使在文本输入模式下也会设置 SetControls，但此挂钩仅在游戏过程中调用。
+            使用它来检查您已注册的键绑定。虽然即使在文本输入模式下也会设置 SetControls，但这个钩子仅在游戏过程中调用。
             </summary>
             <param name="triggersSet"></param>
         </member>
@@ -10837,7 +10843,7 @@
         </member>
         <member name="M:Terraria.ModLoader.ModPlayer.PreUpdateBuffs">
             <summary>
-            这是在调用 SetControls 之后的某个时间调用的，就在该玩家的所有增益和减益更新之前。 此挂钩可用于根据玩家的状态向玩家添加增益或减益（例如，如果玩家靠近篝火，则添加篝火增益）。
+            这是在调用 SetControls 之后的某个时间调用的，就在该玩家的所有增益和减益更新之前。 这个钩子可用于根据玩家的状态向玩家添加增益或减益（例如，如果玩家靠近篝火，则添加篝火增益）。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModPlayer.PostUpdateBuffs">
@@ -10900,7 +10906,7 @@
         </member>
         <member name="M:Terraria.ModLoader.ModPlayer.PreHurt(System.Boolean,System.Boolean,System.Int32@,System.Int32@,System.Boolean@,System.Boolean@,System.Boolean@,System.Boolean@,Terraria.DataStructures.PlayerDeathReason@,System.Int32@)">
             <summary>
-            每次玩家受到伤害之前都会调用此挂钩。 pvp 参数是伤害是否来自其他玩家。 quiet 参数确定伤害是否会传输给服务器。 可以修改 damage、hitDirection 和 crit 参数。 如果您想使用自己的伤害公式，请将 customDamage 参数设置为 true（此参数将禁用原版自动从伤害中减去玩家的防御的相关代码）。 将 playSound 参数设置为 false 以禁用玩家受伤的声音，将 genGore 参数设置为 false 以禁用生成的类血粒子。 （这些对于创建您自己的音效或特效很有用。）可以修改 deathText 参数以在玩家死亡时更改玩家的死亡消息。 返回 false 以阻止玩家受到伤害。 默认情况下返回 true。
+            每次玩家受到伤害之前都会调用这个钩子。 pvp 参数是伤害是否来自其他玩家。 quiet 参数确定伤害是否会传输给服务器。 可以修改 damage、hitDirection 和 crit 参数。 如果您想使用自己的伤害公式，请将 customDamage 参数设置为 true（此参数将禁用原版自动从伤害中减去玩家的防御的相关代码）。 将 playSound 参数设置为 false 以禁用玩家受伤的声音，将 genGore 参数设置为 false 以禁用生成的类血粒子。 （这些对于创建您自己的音效或特效很有用。）可以修改 deathText 参数以在玩家死亡时更改玩家的死亡消息。 返回 false 以阻止玩家受到伤害。 默认情况下返回 true。
             </summary>
             <param name="pvp"></param>
             <param name="quiet"></param>
@@ -10938,7 +10944,7 @@
         </member>
         <member name="M:Terraria.ModLoader.ModPlayer.PreKill(System.Double,System.Int32,System.Boolean,System.Boolean@,System.Boolean@,Terraria.DataStructures.PlayerDeathReason@)">
             <summary>
-            每当玩家在达到 0 生命值后即将被杀死时，就会调用此挂钩。 将 playSound 参数设置为 false 以停止播放死亡音效。 将 genGore 参数设置为 false 以停止创建尸块和粒子。 （这些对于创建您自己的音效或粒子效果很有用。）返回 false 以阻止玩家被杀死。 请确保只有当你知道自己在做什么时才返回 false！ 默认情况下返回 true。
+            每当玩家在达到 0 生命值后即将被杀死时，就会调用这个钩子。 将 playSound 参数设置为 false 以停止播放死亡音效。 将 genGore 参数设置为 false 以停止创建血污和粒子。 （这些对于创建您自己的音效或粒子效果很有用。）返回 false 以阻止玩家被杀死。 请确保只有当你知道自己在做什么时才返回 false！ 默认情况下返回 true。
             </summary>
             <param name="damage"></param>
             <param name="hitDirection"></param>
@@ -10977,20 +10983,20 @@
         </member>
         <member name="M:Terraria.ModLoader.ModPlayer.PostItemCheck">
             <summary>
-            允许您在运行玩家持有物品的更新代码后执行任何操作。 调用于持有物品更新代码中间的挂钩在 ModItem 和 ModPlayer 中有更具体的名称。
+            允许您在运行玩家持有物品的更新代码后执行任何操作。 调用于持有物品更新代码中间的钩子在 ModItem 和 ModPlayer 中有更具体的名称。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModPlayer.UseTimeMultiplier(Terraria.Item)">
             <summary>
-            允许您更改项目的有效使用时间(useTime)。
-             <br/>请注意，此挂钩可能会导致物品的实际使用次数少于或多于它们在每次使用时应运行的次数。
+            允许您更改物品的有效使用时间(useTime)。
+            <br/>请注意，这个钩子可能会导致物品的实际使用次数少于或多于它们在每次使用时应运行的次数。
             </summary>
             <returns> 使用时间的乘数。 默认为 1f。 大于 1 的值会增加物品的使用时间长度。 </returns>
         </member>
         <member name="M:Terraria.ModLoader.ModPlayer.UseAnimationMultiplier(Terraria.Item)">
             <summary>
             允许您更改物品的有效 useAnimation。
-             <br/>请注意，此挂钩可能会导致物品的实际使用次数次数少于或多于它们在每次使用时应运行的次数。
+            <br/>请注意，这个钩子可能会导致物品的实际使用次数次数少于或多于它们在每次使用时应运行的次数。
             </summary>
             <returns>动画时间的乘数。 默认为 1f。 大于 1 的值会增加物品动画时间的长度。 </returns>
         </member>
@@ -11006,7 +11012,7 @@
             允许您根据玩家的增益、配饰等暂时修改生命治疗物品将治疗的生命量。这仅适用于具有 healLife 值的物品。
             </summary>
             <param name="item">物品实例</param>
-            <param name="quickHeal">该物品是否正在通过快速治疗使用。</param>
+            <param name="quickHeal">该物品是否正在通过快速治疗使用</param>
             <param name="healValue">恢复的血量</param>
         </member>
         <member name="M:Terraria.ModLoader.ModPlayer.GetHealMana(Terraria.Item,System.Boolean,System.Int32@)">
@@ -11069,7 +11075,7 @@
             <summary>
             给定的弹药物品是否会被该武器消耗。<br></br>
             默认情况下，返回 true； 返回 false 以防止弹药消耗。 <br></br>
-            如果返回 false，则永远不会调用 <see cref="M:Terraria.ModLoader.ModPlayer.OnConsumeAmmo(Terraria.Item,Terraria.Item)"/> 挂钩。
+            如果返回 false，则永远不会调用 <see cref="M:Terraria.ModLoader.ModPlayer.OnConsumeAmmo(Terraria.Item,Terraria.Item)"/> 钩子。
             </summary>
             <param name="weapon">该玩家尝试使用的武器。</param>
             <param name="ammo">给定武器试图消耗的弹药。</param>
@@ -11152,7 +11158,7 @@
         </member>
         <member name="M:Terraria.ModLoader.ModPlayer.OnHitAnything(System.Single,System.Single,Terraria.Entity)">
             <summary>
-            当玩家使用任何东西（无论是近战武器还是射弹）伤害任何东西（无论是 NPC 还是其他玩家）时，将调用此挂钩。x 和 y 参数是受害者(victim参数)的中心坐标。
+            当玩家使用任何东西（无论是近战武器还是射弹）伤害任何东西（无论是 NPC 还是其他玩家）时，将调用这个钩子。x 和 y 参数是受害者(victim参数)的中心坐标。
             </summary>
             <param name="x"></param>
             <param name="y"></param>
@@ -11369,7 +11375,7 @@
         </member>
         <member name="M:Terraria.ModLoader.ModPlayer.DrawEffects(Terraria.DataStructures.PlayerDrawSet,System.Single@,System.Single@,System.Single@,System.Single@,System.Boolean@)">
             <summary>
-            允许您在绘制此玩家时创建特殊效果，例如创建粒子、修改绘制玩家的颜色等。 fullBright 参数使绘制的玩家忽略修改后的颜色和光照。 请注意，仅当 r、g、b 和/或 a 不等于 1 时，fullBright 参数才有效。确保将您创建的任何粒子的索引添加到 drawInfo.DustCache，并将您创建的任何尸块的索引添加到 drawInfo.GoreCache。 <br/>
+            允许您在绘制此玩家时创建特殊效果，例如创建粒子、修改绘制玩家的颜色等。 fullBright 参数使绘制的玩家忽略修改后的颜色和光照。 请注意，仅当 r、g、b 和/或 a 不等于 1 时，fullBright 参数才有效。确保将您创建的任何粒子的索引添加到 drawInfo.DustCache，并将您创建的任何血污的索引添加到 drawInfo.GoreCache。 <br/>
             如果正在绘制玩家残影，这个方法将在一帧中多次调用。 检查 <code>if (drawinfo.shadow == 0f)</code> 以仅在绘制原始玩家图像(即非残影的唯一图像)时执行一些逻辑。 例如，仅为原始玩家图像生成粒子通常是所需的行为。
             </summary>
             <param name="drawInfo"></param>
@@ -11401,7 +11407,7 @@
         </member>
         <member name="M:Terraria.ModLoader.ModPlayer.ModifyScreenPosition">
             <summary>
-            在发生武器缩放和相机线性插值后，使用此挂钩修改 Main.screenPosition。
+            在发生武器缩放和相机线性插值后，使用这个钩子修改 Main.screenPosition。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModPlayer.ModifyZoom(System.Single@)">
@@ -11496,9 +11502,9 @@
         <member name="M:Terraria.ModLoader.ModPlayer.CanAutoReuseItem(Terraria.Item)">
             <summary>
             允许您修改任何物品的自动挥舞（自动重复使用）行为，而不必弄乱 Item.autoReuse。
-             <br>有助于创建像猛爪手套这样的效果，它可以使近战武器和鞭子自动挥舞。</br>
-             <br>返回 true 以启用自动挥舞（如果尚未通过 autoReuse 启用），返回 false 以防止自动挥舞。 默认情况下返回 null，这会应用原版行为。</br>
-             <br/>有关自动挥舞，请参阅 https://terraria.wiki.gg/zh/wiki/Autoswing
+            <br>有助于创建像猛爪手套这样的效果，它可以使近战武器和鞭子自动挥舞。</br>
+            <br>返回 true 以启用自动挥舞（如果尚未通过 autoReuse 启用），返回 false 以防止自动挥舞。 默认情况下返回 null，这会应用原版行为。</br>
+            <br/>有关自动挥舞，请参阅 https://terraria.wiki.gg/zh/wiki/Autoswing
             </summary>
             <param name="item"> 物品 </param>
         </member>
@@ -12313,12 +12319,12 @@
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.PreUpdateGores">
             <summary>
-            在尸块(Gore)更新之前调用。
+            在血污(Gore)更新之前调用。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.PostUpdateGores">
             <summary>
-            在尸块(Gore)更新之后调用。
+            在血污(Gore)更新之后调用。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModSystem.PreUpdateProjectiles">
@@ -13156,7 +13162,7 @@
         </member>
         <member name="M:Terraria.ModLoader.ModWaterStyle.GetDropletGore">
             <summary>
-            水滴从方块上落下的特效的尸块(Gore)ID。
+            水滴从方块上落下的特效的血污(Gore)ID。
             </summary>
         </member>
         <member name="M:Terraria.ModLoader.ModWaterStyle.LightColorMultiplier(System.Single@,System.Single@,System.Single@)">
@@ -13531,7 +13537,7 @@
         </member>
         <member name="M:Terraria.ModLoader.PlayerLoader.ModifyWeaponDamage(Terraria.Player,Terraria.Item,Terraria.ModLoader.StatModifier@)">
             <summary>
-            Calls ModItem.HookModifyWeaponDamage, then all GlobalItem.HookModifyWeaponDamage hooks.
+            调用 ModItem.HookModifyWeaponDamage，然后调用所有 GlobalItem.HookModifyWeaponDamage 钩子。
             </summary>
         </member>
         <member name="T:Terraria.ModLoader.PosData`1.OrderedSparseLookupBuilder">
@@ -13803,7 +13809,7 @@
         </member>
         <member name="T:Terraria.ModLoader.TooltipLine">
             <summary>
-            This class serves as a way to store information about a line of tooltip for an item. You will create and manipulate objects of this class if you use the ModifyTooltips hook.
+            此类用作存储有关物品的工具提示行的信息的一种方式。 如果使用 ModifyTooltips 钩子，您将创建和操作此类的对象。
             </summary>
         </member>
         <member name="F:Terraria.ModLoader.TooltipLine.Mod">
